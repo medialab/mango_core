@@ -1,0 +1,487 @@
+/* The following styles are for versions of IE 6 and older */
+
+
+
+/*SLIDER*/
+
+div.multinum-slider{
+  margin-top: 20px;
+  margin-left: 20px;
+
+}
+
+/* Modify left div positionning*/
+#left{
+	padding-top: 19px;	
+	margin-right: 6px;
+	padding-right: 6px;
+	width: 170px; 
+	height: 100%px;
+	border-right: 1px solid #929B99;
+	float: left;
+	text-align: right; 
+	position: absolute;
+}       
+
+/* Remove the ugly padding around the question*/
+
+span.question_wrapper{
+  display: block;
+  background-color: #F3F2EF;
+	width: 580px; 
+	padding: 10px;
+	margin: 0;
+  margin-top: 8px; 
+} 
+p { 
+	padding: 10px; 
+}         
+          
+#anim_desc, .anim_desc{
+	background-color: #F3F2EF;
+	width: 580px;
+	padding: 10px;
+  margin-bottom: -13px; 
+}     
+
+#eiContainer.deroulement{
+  margin-top: 15px;
+  margin-left: 0px; 
+  margin-bottom: 0px;
+}
+
+
+/* Calculateur de gains*/
+
+/*///////////CTA*/
+
+input.cta_reset{    
+	display: block;
+  margin: 0;
+  padding: 0;
+	padding-left: 20px; 
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+	width: 150px;
+	height: 25px;  
+	font-weight: bold;
+	float: left;
+	color : #515151;
+  background: transparent url(img/cta_reset.png) no-repeat center top;
+  
+}           
+
+
+input.cta_reset_hover{  
+	display: block;
+  margin: 0;
+  padding: 0;
+	padding-left: 20px; 
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+	width: 150px;
+	height: 25px;  
+	font-weight: bold;
+	float: left;
+	color : #515151;
+  background: transparent url(img/cta_reset_hover.png) no-repeat center top;
+  
+}
+
+
+input.cta_reset_down{  
+	display: block;
+  margin: 0;
+  padding: 0;
+	padding-left: 20px; 
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+	width: 150px;
+	height: 25px;  
+	font-weight: bold;
+	float: left;
+	color : #515151;
+    background: transparent url(img/cta_reset_down.png) no-repeat center top;
+}
+
+
+
+
+input.cta_simulate{   
+	display: block;
+  margin: 0;
+  padding: 0;
+	padding-left: 20px; 
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+	width: 180px;
+	height: 22px;
+	float: right;
+	font-weight: bold;
+	color : #F5F5F5;
+  background: transparent url(img/cta_simulate.png) no-repeat center top;
+}
+
+
+input.cta_simulate_hover{  
+	display: block;
+  margin: 0;
+  padding: 0;
+	padding-left: 20px; 
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+	width: 180px;
+	height: 22px;
+	float: right;
+	font-weight: bold;
+	color : #F5F5F5;
+    background: transparent url(img/cta_simulate_hover.png) no-repeat center top;
+}
+
+input.cta_simulate_down{  
+	display: block;
+  margin: 0;
+  padding: 0;
+	padding-left: 20px; 
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+	width: 180px;
+	height: 22px;
+	float: right;
+	font-weight: bold;
+	color : #F5F5F5;
+    background: transparent url(img/cta_simulate_down.png) no-repeat center top;
+}
+
+
+
+/*///////BTNS*/
+
+
+input.btn_minus{
+	display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+  background: transparent url(img/btn_minus.png) no-repeat center top;
+  
+}
+
+input.btn_minus_hover{
+	display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+  background: transparent url(img/btn_minus_hover.png) no-repeat center top;
+ }
+
+input.btn_minus_down{
+	display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+  background: transparent url(img/btn_minus_down.png) no-repeat center top;
+ }
+ 
+ 
+
+input.btn_plus{
+	display: block;
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+  background: transparent url(img/btn_plus.png) no-repeat center top;
+ }
+
+input.btn_plus_hover{
+	display: block;
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+  background: transparent url(img/btn_plus_hover.png) no-repeat center top;
+ }
+
+input.btn_plus_down{
+	display: block;
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+  background: transparent url(img/btn_plus_down.png) no-repeat center top;
+ }               
+
+input.btn_random{   
+  width: 30px;
+  height: 30px;
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */  
+  background: transparent url(img/btn_random.png) no-repeat center top;
+ }
+input.btn_random_hover{   
+  width: 30px;
+  height: 30px;
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */   
+  background: transparent url(img/btn_random_hover.png) no-repeat center top;
+ }
+
+input.btn_random_down{  
+  width: 30px;
+  height: 30px;
+  margin-top: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */     
+  background: transparent url(img/btn_random_down.png) no-repeat center top;
+ }
+ 
+ 
+ 
+ /*////////////////INPUTS */
+ 
+ 
+input#player0_money_amount{
+	width: 58px;
+	height: 50px;
+	border: 5px solid;
+	text-align: right;
+	font-weight: bold;
+	font-size: 23pt;
+	color: #606060;
+	margin-top: 4px;
+	border-color: #93ad3f;
+}
+
+input#player1_money_amount{
+	width: 58px;
+	height: 50px;
+	border: 5px solid;
+	text-align: right;
+	font-weight: bold;
+	font-size: 23pt;
+	color: #606060;
+	margin-top: 4px;
+	border-color: #f79126;
+}
+input#player2_money_amount{
+	width: 58px;
+	height: 50px;
+	border: 5px solid;
+	text-align: right;
+	font-weight: bold;
+	font-size: 23pt;
+	color: #606060;
+	margin-top: 4px;
+	border-color: #6f95d6;
+}
+input#player3_money_amount{
+	width: 58px;
+	height: 50px;
+	border: 5px solid;
+	text-align: right;
+	font-weight: bold;
+	font-size: 23pt;
+	color: #606060;
+	margin-top: 4px;
+	border-color: #ca3237;
+}
+
+
+
+.choice-5-pt-radio ul {
+	margin-left: 2.5em;
+}
+ .yes-no ul
+,.gender ul {
+	margin-left: 1em;
+}
+
+.multiple-short-txt ul.numbers-only li span {
+	width: 10em;
+}
+
+
+ .multiple-short-txt ul
+,.multiple-opt-comments ul
+,.numeric-multi ul
+,.multiple-short-txt ul li
+,.multiple-opt-comments ul li
+,.numeric-multi ul li {
+	margin-left: 0%;
+	padding-left: 0%;
+}
+
+
+.multiple-short-txt ul label {
+    margin-left: 0em;
+    float:left;
+    display: block;
+    width: 40%;      
+    text-align:right;
+}
+
+
+.multiple-opt-comments ul li label{
+    float: left;
+    width: 35%; 
+    display:block; 
+    margin:0;
+    padding:0;    
+    padding-left:25px;
+}
+
+
+.multiple-opt-comments ul li span.comment{
+    float:left;
+    width:40%;
+    display:block;
+    margin:0;
+    padding:0; 
+}
+
+.multiple-opt-comments ul li span.comment input{
+    width:200px;
+}
+
+.multiple-short-txt ul li,
+.multiple-opt-comments ul li {  
+    float: left;  
+    clear: left;  
+    width: 100%;  
+}
+
+.innergraph img {
+    height:16px;
+    vertical-align:top;
+    margin:0px 0px 0px 0px;
+}
+
+.rank select {
+    margin-top:4px !important;
+}
+
+.multiple-short-txt td.answer,
+.date td.answer,
+.yes-no td.answer,
+.list-radio td.answer,
+.list-radio-flexible td.answer,
+.choice-5-pt-radio td.answer,
+.gender td.answer {
+    padding-bottom:10px;
+}
+
+.date button {
+    line-height:15px;
+    height:21px;
+    width:22px;
+}
+
+td.questionhelp {
+    text-align:left;
+}
+
+.numeric-multi ul li label {
+    float: left;
+	width: auto;  
+}
+
+.numeric-multi ul {
+	float: left; 
+	margin: 0 0 1.5em 0 !important;
+	padding: 0 ;
+}
+
+.numeric-multi ul li {  
+    width: 98%;
+}
+
+.numeric-multi ul li span {
+    padding-left:0;
+}
+
+.numeric-multi input {
+    padding-left:1px;
+}
+
+input.submit
+{
+    padding:0px;
+}
+
+/** UI Slider **/
+
+.numeric-multi label.slider-label {
+	margin-top: 1.3em;
+	display: inline;
+	width: 40%;
+}
+
+.slider_lefttext {
+	float: left;
+	padding-top: 1.4em;
+}
+
+.slider_righttext {
+	float: left;
+	padding-top: 1.4em;
+}
+
+.ui-slider-1 {
+	position: relative;
+}
+
+.slider_showmin {
+	margin: 0;
+	position: absolute;
+	top: 15px;
+}
+
+.slider_showmax {
+	margin: 0;
+	position: absolute;
+	top: 15px;
+	left: 150px;
+}
+
+      
+       
+span.question_wrapper table tbody td input{
+ /*width: 200px;*/
+ width: 20px;
+} 

@@ -1,0 +1,31 @@
+/* The following styles are for IE 8 only*/
+.rank label
+{
+  line-height: 27px;
+}
+
+td .rank {
+    padding-right:20px;    
+}
+
+td.questionhelp {
+    text-align:left;
+}
+
+
+/*TABLES*/   
+span.question_wrapper table tbody td input{
+ /*width: 200px;*/
+ width: 20px;
+}                                
+       
+span.question_wrapper table tbody td{
+ /*width: 200px;*/
+ width: 40px;
+}
+
+table.explanations {
+ /*width: 200px;*/
+ width: 800px;
+ background-color: red;
+}
