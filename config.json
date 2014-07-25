@@ -1,0 +1,7 @@
+{
+	"sDbHost" : "database_host",
+	"sDbDatabase" : "database_name",
+	"sDbUser" : "database_user",
+	"sDbPassword" : "database_password",
+	"sInstallFolder" : "install_folder/"
+}
