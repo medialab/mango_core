@@ -17,6 +17,8 @@ function resetForm() {
 	$('.btn-cancel').remove();
 	// Remove delete experiment button
 	$('.btn-delete').remove();
+	// Remove export button
+	$('.btn-export').remove();
 	// Reset the experiments list
 	$('.list-experiments select > option').remove();
 	$.ajax({
