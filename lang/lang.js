@@ -4,7 +4,7 @@ function translator(sElementId, sLang) {
 }
 
 $(document).ready(function() {
-	$.get('../mango_surveys_router/lang.xml', function(data) {
+	$.get('./../lang/lang.xml', function(data) {
 		oLang = $(data);
 	});
 });

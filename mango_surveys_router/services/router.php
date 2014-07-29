@@ -6,7 +6,7 @@
  * Called by plugin.php
  */
 
-require_once('../lang/lang.php');
+require_once('../../lang/lang.php');
 
 class Router {
 	
@@ -20,11 +20,12 @@ class Router {
 	
 	function __construct() {
 		$lang = $_GET['lang'];
-		$file = realpath('lang.xml');
+		// $file = realpath("./../../lalilou/lang.xml");
+		$file = "http://localhost/limesurvey/mango/mango_surveys_router/lang/lang.xml";
 		$this->_translator = new translator($lang, $file);
 
 		// DB Connection
-		$this->oParams			= json_decode(file_get_contents('../config.json'));
+		$this->oParams			= json_decode(file_get_contents('../../config.json'));
 		$this->oDbConnection	= mysqli_connect($this->oParams->sDbHost, $this->oParams->sDbUser, $this->oParams->sDbPassword, $this->oParams->sDbDatabase) or die("Error " . mysqli_error($link));
 	}
 	
