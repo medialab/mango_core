@@ -350,7 +350,7 @@ Vous avez 10€ en votre possession. Combien voulez-vous transférer au particip
     <surveyls_description/>
     <surveyls_welcometext/>
     <surveyls_endtext/>
-    <surveyls_url><![CDATA[http://grebdioz.sciences-po.fr/mango/mango_surveys_router/plugin.php?token={TOKEN}&sid={SID}&redirect]]></surveyls_url>
+    <surveyls_url><![CDATA[http://grebdioz.sciences-po.fr/mango/mango_surveys_router/services/plugin.php?token={TOKEN}&sid={SID}&redirect]]></surveyls_url>
     <surveyls_urldescription/>
     <surveyls_email_invite_subj><![CDATA[Invitation à participer à un questionnaire]]></surveyls_email_invite_subj>
     <surveyls_email_invite><![CDATA[Cher(e) {FIRSTNAME},<br />

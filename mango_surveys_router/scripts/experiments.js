@@ -183,7 +183,16 @@ $(document).ready(
 						type: 'POST',
 						url: 'export_results.php',
 						data: {experiment_id: iExperimentId},
-						success: function() {
+						success: function(data) {
+							var sResult = jQuery.parseJSON(data);
+							if(sResult.status == 'error') {
+								$('.messages').append('<div class="alert alert-danger">' + sResult.message + '</div>').delay(10000).slideUp(1000);
+							} else {
+								// Download results file
+								window.location.href = '../export_' + ((iExperimentId < 10) ? '0' + iExperimentId : iExperimentId) + '.csv';
+							}
+							// Enable interaction buttons
+							$('.buttons .btn').attr('disabled', false);
 						}
 					});
 				}

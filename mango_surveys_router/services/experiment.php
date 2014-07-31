@@ -4,7 +4,7 @@
  * @author Anne L'Hôte <anne.lhote@gmail.com>
  * 
  * Called by services/*.php
- */
+ **/
 
 class Experiment {
 
@@ -16,8 +16,8 @@ class Experiment {
 	
 	function __construct() {
 		// DB Connection
-		$oParams = json_decode(file_get_contents('../../config.json'));
-		$this->oDbConnection = mysqli_connect($oParams->sDbHost, $oParams->sDbUser, $oParams->sDbPassword, $oParams->sDbDatabase) or die("Error " . mysqli_error($link));
+		$oParams				= json_decode(file_get_contents('../../config.json'));
+		$this->oDbConnection	= mysqli_connect($oParams->sDbHost, $oParams->sDbUser, $oParams->sDbPassword, $oParams->sDbDatabase) or die("Error " . mysqli_error($link));
 	}
 
 	/*** Functions ***/
@@ -25,8 +25,8 @@ class Experiment {
 	/**
 	 * Select all the experiments of limesurvey
 	 *
-	 * @return $aExperiments array of all the experiments
-	 */
+	 * @return $aExperiments array list of all the experiments available
+	 **/
 	function getAllExperiments() {
 		$aExperiments = array();
 		$sQuery = "SELECT id, name FROM mango_experiment";
@@ -37,6 +37,13 @@ class Experiment {
 		return $aExperiments;
 	}
 
+	/**
+	 * Load the name and the games of a given experiment
+	 *
+	 * @param $iExperimentId int id of the experiment to load
+	 *
+	 * @return $aRow array name and list of this experiment games
+	 **/
 	function getExperiment($iExperimentId) {
 		$sQuery = "SELECT id, name FROM mango_experiment WHERE id = $iExperimentId";
 		$oResult = $this->oDbConnection->query($sQuery);
@@ -51,7 +58,7 @@ class Experiment {
 	 * Select all the games of limesurvey
 	 *
 	 * @return $aGames array of games (surveys)
-	 */
+	 **/
 	function getAllGames() {
 		$aGames = array();
 		$sQuery = "SELECT surveyls_survey_id, surveyls_title FROM lime_surveys_languagesettings ORDER BY surveyls_title";
@@ -65,10 +72,10 @@ class Experiment {
 	/**
 	 * Select all the games of a given experiment
 	 *
-	 * @param $iExperimentId int Experiment Id
+	 * @param $iExperimentId int id of the experiment to load
 	 * 
 	 * @return $aGames array of games (surveys)
-	 */
+	 **/
 	function getGamesFromExperiment($iExperimentId) {
 		$aGames = array();
 		$sQuery = "SELECT survey_id, survey_order FROM mango_surveys_router WHERE experiment_id = $iExperimentId ORDER BY survey_order ASC";
@@ -82,10 +89,12 @@ class Experiment {
 	/**
 	 * Save an experiment and its games
 	 *
-	 * @param $iExperimentId int Experiment Id
-	 * @param $sExperimentName string Experiment Name
-	 * @param $aExperimentGames array Experiment Games
-	 */
+	 * @param $iExperimentId int id of the experiment to save
+	 * @param $sExperimentName string name of the experiment to save
+	 * @param $aExperimentGames array list of games of the experiment to save
+	 *
+	 * @return void
+	 **/
 	function saveExperiment($iExperimentId, $sExperimentName, $aExperimentGames) {
 		// If this experiment doesn't exist, add it
 		if($iExperimentId == '') {
@@ -125,8 +134,10 @@ class Experiment {
 	/**
 	 * Delete an experiment and its games
 	 *
-	 * @param $iExperimentId int Experiment Id
-	 */
+	 * @param $iExperimentId int id of the experiment to save
+	 *
+	 * @return void
+	 **/
 	function deleteExperiment($iExperimentId) {
 		// Remove all experiment games
 		$sQuery = "DELETE FROM mango_surveys_router WHERE experiment_id = $iExperimentId";
@@ -136,6 +147,13 @@ class Experiment {
 		$oResult = $this->oDbConnection->query($sQuery);
 	}
 
+	/**
+	 * Retrieve an experiment according to its name
+	 *
+	 * @param $sExperimentName string name of the experiment to search
+	 *
+	 * @return $aRow['id'] int id of the experiment searched
+	 **/
 	function getExperimentIdByName($sExperimentName) {
 		$sQuery = "SELECT id FROM mango_experiment WHERE name = '$sExperimentName'";
 		$oResult = $this->oDbConnection->query($sQuery);

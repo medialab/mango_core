@@ -3,8 +3,8 @@
 /**
  * @author Anne L'Hôte <anne.lhote@gmail.com>
  * 
- * Called by plugin.php
- */
+ * Called by services/plugin.php
+ **/
 
 require_once('../../lang/lang.php');
 
@@ -20,8 +20,7 @@ class Router {
 	
 	function __construct() {
 		$lang = $_GET['lang'];
-		// $file = realpath("./../../lalilou/lang.xml");
-		$file = "http://localhost/limesurvey/mango/mango_surveys_router/lang/lang.xml";
+		$file = "../lang/lang.xml";
 		$this->_translator = new translator($lang, $file);
 
 		// DB Connection
@@ -36,7 +35,7 @@ class Router {
 	 * Set the experiment id passed as get parameter into a session variable
 	 * 
 	 * @return void
-	 */
+	 **/
 	function launchExperiment() {
 		if(isset($_GET) && isset($_GET['experiment'])) {
 			$_SESSION['experiment'] = (int) $_GET['experiment'];
@@ -47,8 +46,8 @@ class Router {
 	 * Return the id of the next survey to be launched
 	 * Return -1 if there is no more survey to be launched
 	 * 
-	 * @return int id of the next suvey to be launched
-	 */
+	 * @return $iSurveyNextId int id of the next suvey to be launched
+	 **/
 	function getNextSurvey() {
 		// Get the current experiment id
 		if(isset($_SESSION) && isset($_SESSION['experiment'])) {
@@ -82,8 +81,10 @@ class Router {
 	 * Either print or redirect to the next survey to launch
 	 * according to the token, the experiment id and the current survey
 	 * 
-	 * @param int $iSurveyId
-	 */
+	 * @param int $iSurveyId id of the survey to be launched
+	 *
+	 * @return void
+	 **/
 	function launchSurvey($iSurveyId) {
 		// Get the root url
 		$sRootUrl = "http://{$_SERVER['HTTP_HOST']}/" . $this->oParams->sInstallFolder;
