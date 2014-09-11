@@ -875,7 +875,7 @@ div.selected_game{
 	text-align: center;
 	top: 0;
 	width: 100%;
-	z-index: 1 !important;
+	z-index: 5 !important;
 }
 
 .lightbox.black {
