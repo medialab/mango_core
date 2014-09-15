@@ -902,12 +902,6 @@ div.selected_game{
   color: black;
 }
 
-/* Cognitive games : Fear */
-
-.fear img {
-  margin-top: 5%;
-}
-
 /* Cognitive games : Preferences */
 
 .preferences {
@@ -917,7 +911,6 @@ div.selected_game{
 .preferences .title {
   font-size: 25px;
   font-weight: bold;
-  margin-bottom: 25px;
   visibility: hidden;
 }
 
