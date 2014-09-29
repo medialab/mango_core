@@ -14,14 +14,24 @@
  * (...)/mango/mango_surveys_router/services/plugin.php?token={TOKEN}&sid={SID}&redirect
  **/
 
+// Load dependencies
 require_once('router.php');
+require_once('Mobile_Detect.php');
+require_once('../../lang/lang.php');
 
-session_start();
+// Mobile detection
+$detection 			= new Mobile_Detect();
 
-$router			= new Router();
-$router->launchExperiment();
+if($detection->isMobile() || $detection->isTablet()) {
+	echo 'Cette expérimentation n\'est pas disponible sur Smartphone et sur tablette. Merci d\'utiliser un ordinateur pour prendre part à cette expérimentation.';
+} else {
+	session_start();
+	
+	$router			= new Router();
+	$router->launchExperiment();
 
-$iSurveyNextId	= $router->getNextSurvey();
-$router->launchSurvey($iSurveyNextId);
+	$iSurveyNextId	= $router->getNextSurvey();
+	$router->launchSurvey($iSurveyNextId);
+}
 
 ?>
