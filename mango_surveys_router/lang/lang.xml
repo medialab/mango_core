@@ -16,4 +16,8 @@
 		<translation lang="en">Please choose an experiment name.</translation>
 		<translation lang="fr"><![CDATA[Merci de saisir un nom d'expérimentation.]]></translation>
 	</xmldata>
+	<xmldata id="error_wrong_device">
+		<translation lang="en">This experimentat is not available on smartphone or on tablet. Please use a computer to fill this experiment.</translation>
+		<translation lang="fr"><![CDATA[Cette expérimentation n'est pas disponible sur Smartphone et sur tablette. Merci d'utiliser un ordinateur pour prendre part à cette expérimentation.]]></translation>
+	</xmldata>
 </language>
