@@ -888,6 +888,16 @@ div.selected_game{
   color: black;
 }
 
+.lightbox .screencentered,
+.multinum-slider.screencentered {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -ms-transform: translate(-50%, -50%); /* IE 9 */
+  -webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
+  transform: translate(-50%, -50%);
+}
+
 .lightbox .message {
   font-size: 20px;
   margin-top: 50px;
@@ -902,12 +912,13 @@ div.selected_game{
   color: black;
 }
 
+
 /* Cognitive games : Preferences */
 
 .preferences .title {
   font-size: 25px;
   font-weight: bold;
-  padding-bottom: 20px;
+  padding-top: 15px;
   visibility: hidden;
 }
 
@@ -928,13 +939,27 @@ div.selected_game{
   visibility: hidden;
 }
 
-/* Cognitive games : Fear */
 
-.fear img {
-  position: absolute;
+/* Cognitive games : MetaCognition */
+
+.metacognition .text {
+  margin-top: -200px;
+  width: 480px;
 }
 
-/* Bug fixes */
+.metacognition .text .key {
+  display: inline-block;
+  width: 50%;
+}
+
+.metacognition .question {
+  color: black;
+  font-size: 18px;
+  margin: 0;
+}
+
+
+/* trans fixes */
 .hide {
   display: none;
 }
