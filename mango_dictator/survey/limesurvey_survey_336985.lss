@@ -21,7 +21,7 @@
     <gid><![CDATA[2143]]></gid>
     <sid><![CDATA[336985]]></sid>
     <group_name><![CDATA[Déroulement]]></group_name>
-    <group_order><![CDATA[51]]></group_order>
+    <group_order><![CDATA[1]]></group_order>
     <description/>
     <language><![CDATA[fr]]></language>
     <randomization_group/>
@@ -31,7 +31,17 @@
     <gid><![CDATA[2144]]></gid>
     <sid><![CDATA[336985]]></sid>
     <group_name><![CDATA[Entrez votre décision]]></group_name>
-    <group_order><![CDATA[52]]></group_order>
+    <group_order><![CDATA[2]]></group_order>
+    <description/>
+    <language><![CDATA[fr]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[2206]]></gid>
+    <sid><![CDATA[336985]]></sid>
+    <group_name><![CDATA[Matching]]></group_name>
+    <group_order><![CDATA[0]]></group_order>
     <description/>
     <language><![CDATA[fr]]></language>
     <randomization_group/>
@@ -65,14 +75,7 @@
     <gid><![CDATA[2143]]></gid>
     <type><![CDATA[X]]></type>
     <title><![CDATA[question01]]></title>
-    <question><![CDATA[<script type="text/javascript">
-$(document).ready(
-    function() {
-        $("#moveprevbtn").remove();
-    }
-);
-</script>
-<div id="anim_desc">
+    <question><![CDATA[<div id="anim_desc">
 	<p>
 		Dans ce jeu, des groupes de 2 participants (vous-même et 1 autre participant) sont formés par tirage au sort.</p>
 	<p>
@@ -95,7 +98,7 @@ $(document).ready(
     <help/>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[N]]></mandatory>
-    <question_order><![CDATA[1]]></question_order>
+    <question_order><![CDATA[0]]></question_order>
     <language><![CDATA[fr]]></language>
     <parent_qid><![CDATA[0]]></parent_qid>
     <scale_id><![CDATA[0]]></scale_id>
@@ -119,14 +122,68 @@ $(document).ready(
 </script>
 <div id="anim_sentence" style="text-align: center;">
 	<span style="display: table-cell; vertical-align: middle;"><img alt="" height="32px" src="/upload/surveys/57263/warning.png" width="32px" /></span> <span style="display: table-cell; vertical-align: middle;"><strong>Ceci est un écran de décision. Une fois que vous aurez pris votre décision et cliqué sur le bouton "Suivant", vous ne pourrez plus revenir à cet écran.</strong></span> <span style="display: table-cell; vertical-align: middle;"><img alt="" height="32px" src="/upload/surveys/57263/warning.png" width="32px" /></span></div>
-<br />
 Votre rôle est celui du participant A.<br />
 Vous avez 10€ en votre possession. Combien voulez-vous transférer au participant B?]]></question>
     <preg/>
     <help><![CDATA[<span class="aide">Vous pouvez à tout moment consulter les règles du jeu en cliquant sur le bouton "?" (à gauche)</span>]]></help>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
-    <question_order><![CDATA[1]]></question_order>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[9123]]></qid>
+    <sid><![CDATA[336985]]></sid>
+    <gid><![CDATA[2206]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[question00]]></title>
+    <question><![CDATA[<script type="text/javascript" src="mango/mango_dictator/scripts/countUp.min.js"></script><script type="text/javascript">
+$(document).ready(
+	function() {
+		$.ajax({
+			type: "GET",
+			url: rooturl + "/mango/matching_coop.php",
+			data: "token={TOKEN}&survey={SID}"
+		}).success(
+			function() {
+				$.ajax({
+					type: "GET",
+					url: rooturl + "mango/mango_dictator/services/get_matching.php",
+					data: "token={TOKEN}&game=2"
+				}).done(
+					function(data) {
+						var aParticipants = data.split(',');
+						var options = {
+							useEasing : true,  // toggle easing
+							useGrouping : true,  // 1,000,000 vs 1000000
+							separator : ',',  // character to use as a separator
+							decimal : '.',  // character to use as a decimal
+							prefix : '',
+							suffix : ''
+						}
+						for(var iKey in aParticipants) {
+							var demo = new countUp("counter_" + iKey, 0, aParticipants[iKey], 0, 3, options);
+							demo.start();
+						}
+					}
+				);
+			}
+		);
+	}
+);
+</script>Vous avez été matché avec le participant
+<div id="counter_0" style="display: inline;">
+	&nbsp;</div>
+.]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
     <language><![CDATA[fr]]></language>
     <parent_qid><![CDATA[0]]></parent_qid>
     <scale_id><![CDATA[0]]></scale_id>
@@ -268,7 +325,7 @@ Vous avez 10€ en votre possession. Combien voulez-vous transférer au particip
    <row>
     <sid><![CDATA[336985]]></sid>
     <admin><![CDATA[Anne L'Hôte]]></admin>
-    <adminemail><![CDATA[anne.lhote@sciencespo.fr]]></adminemail>
+    <adminemail><![CDATA[anne.lhote@gmail.com]]></adminemail>
     <anonymized><![CDATA[N]]></anonymized>
     <faxto/>
     <format><![CDATA[G]]></format>
@@ -279,8 +336,8 @@ Vous avez 10€ en votre possession. Combien voulez-vous transférer au particip
     <usecookie><![CDATA[N]]></usecookie>
     <allowregister><![CDATA[N]]></allowregister>
     <allowsave><![CDATA[Y]]></allowsave>
-    <autonumber_start><![CDATA[0]]></autonumber_start>
-    <autoredirect><![CDATA[N]]></autoredirect>
+    <autonumber_start><![CDATA[25]]></autonumber_start>
+    <autoredirect><![CDATA[Y]]></autoredirect>
     <allowprev><![CDATA[N]]></allowprev>
     <printanswers><![CDATA[N]]></printanswers>
     <ipaddr><![CDATA[N]]></ipaddr>
@@ -293,7 +350,8 @@ Vous avez 10€ en votre possession. Combien voulez-vous transférer au particip
     <assessments><![CDATA[N]]></assessments>
     <usecaptcha><![CDATA[D]]></usecaptcha>
     <usetokens><![CDATA[N]]></usetokens>
-    <bounce_email><![CDATA[anne.lhote@sciencespo.fr]]></bounce_email>
+    <bounce_email><![CDATA[anne.lhote@gmail.com]]></bounce_email>
+    <attributedescriptions><![CDATA[a:0:{}]]></attributedescriptions>
     <emailresponseto/>
     <tokenlength><![CDATA[15]]></tokenlength>
     <savetimings><![CDATA[Y]]></savetimings>
