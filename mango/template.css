@@ -45,7 +45,7 @@ div#content{
   width: 960px;
   margin: auto;
   margin-top: -14px;
-  margin-bottom: 0;    
+  margin-bottom: 0;
   height: 100%;   
 }
 
@@ -123,17 +123,19 @@ span.asterisque{
 }
 
 #eiContainer{
-  margin-top: -10px;
-  margin-left: -10px;
+  margin: 15px 0 -10px -10px;
 }  
 
-#eiContainer.deroulement{
-  margin-top: 15px;
-  margin-left: -10px; 
-  margin-bottom: -10px;
+#eiContainer.deroulement {
+  position: relative;
 }
 
-/*TABLES*/
+#eiContainer .start_animation {
+  position: absolute;
+  top: 0;
+}
+
+/* tables */
 
 span.question_wrapper table {
   border: none;
@@ -180,19 +182,15 @@ table.question {
 
 #anim_sentence,
 .anim_sentence {
-  width: 100%;
-  color: #fff;
+  background-color: black;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  color: white;
+  margin: -10px 0 10px -10px;
   padding:  5px 10px;
-  margin-left: -10px;
-  background-color: #000;
   text-align: center;
-  margin-top: -10px;
-  -webkit-border-top_left-radius: 5px;
-  -webkit-border-top_right-radius: 5px;
-  -moz-border-top-left-radius: 5px;
-  -moz-border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  width: 100%;
 }
 
 .test_zone {
@@ -865,6 +863,7 @@ div.selected_game{
   text-align: center;
 }
 
+
 /* Cognitive games */
 
 .lightbox
@@ -958,6 +957,32 @@ div.selected_game{
   margin: 0;
 }
 
+/* Cognitive games : Social Motivation */
+
+.socialmotivation .column {
+  display: inline-block;
+}
+
+.socialmotivation .title {
+  color: #898989;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.socialmotivation .instructions {
+  color: #898989;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.socialmotivation .cross {
+  font-size: 30px;
+  height: 329px;
+  line-height: 329px;
+  vertical-align: top;
+  visibility: hidden;
+}
+
 
 /* trans fixes */
 .hide {
@@ -990,4 +1015,80 @@ div.selected_game{
 /* Set form width */
 #limesurvey {
   width: 580px;
+}
+
+.inline {
+  display: inline;
+}
+
+/* Custom */
+h1.sid .surveydescription {
+  display: none;
+}
+
+h1.sid.survey-537887 .groupname {
+  display: none;
+}
+h1.sid.survey-537887 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-969373 .groupname {
+  display: none;
+}
+h1.sid.survey-969373 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-639163 .groupname {
+  display: none;
+}
+h1.sid.survey-639163 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-982922 .groupname {
+  display: none;
+}
+h1.sid.survey-982922 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-499881 .groupname {
+  display: none;
+}
+h1.sid.survey-499881 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-937529 .groupname {
+  display: none;
+}
+h1.sid.survey-937529 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-448264 .groupname {
+  display: none;
+}
+h1.sid.survey-448264 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-899228 .groupname {
+  display: none;
+}
+h1.sid.survey-899228 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-519196 .groupname {
+  display: none;
+}
+h1.sid.survey-519196 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-158295 .groupname {
+  display: none;
+}
+h1.sid.survey-158295 .surveydescription {
+  display: inline;
+}
+h1.sid.survey-356627 .groupname {
+  display: none;
+}
+h1.sid.survey-356627 .surveydescription {
+  display: inline;
 }

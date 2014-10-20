@@ -45,7 +45,10 @@
     <!--cacher le nom et la description du survey -->
 		<!-- h2>{SURVEYNAME}</h2 -->
 		<!-- h2>{SURVEYDESCRIPTION}</h2 -->
-		<h1>{GROUPNAME}</h1>
+		<h1 class="sid survey-{SID}">
+			<span class="groupname">{GROUPNAME}</span>
+			<span class="surveydescription">{SURVEYDESCRIPTION}</span>
+		</h1>
 		<!--
 		<ul>
 			<li class="active">{GROUPNAME}</li>
