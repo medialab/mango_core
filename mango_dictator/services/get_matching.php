@@ -13,8 +13,8 @@ $sExperimentId				= (isset($_SESSION) && isset($_SESSION['experiment'])) ? $_SES
 /********** PROGRAM **********/
 
 // DB connection
-$oDBConnection			= json_decode(file_get_contents('../../config.json'));
-$mysqli 				= mysqli_connect($oDBConnection->sDbHost, $oDBConnection->sDbUser, $oDBConnection->sDbPassword, $oDBConnection->sDbDatabase) or die("Error " . mysqli_error($link));
+$oDBConnection				= json_decode(file_get_contents('../../config.json'));
+$mysqli 					= mysqli_connect($oDBConnection->sDbHost, $oDBConnection->sDbUser, $oDBConnection->sDbPassword, $oDBConnection->sDbDatabase) or die("Error " . mysqli_error($link));
 
 if ($mysqli->connect_error) {
     die("Erreur de connexion (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);

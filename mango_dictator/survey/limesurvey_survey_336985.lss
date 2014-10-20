@@ -40,8 +40,18 @@
    <row>
     <gid><![CDATA[2206]]></gid>
     <sid><![CDATA[336985]]></sid>
-    <group_name><![CDATA[Matching]]></group_name>
+    <group_name><![CDATA[Association]]></group_name>
     <group_order><![CDATA[0]]></group_order>
+    <description/>
+    <language><![CDATA[fr]]></language>
+    <randomization_group/>
+    <grelevance/>
+   </row>
+   <row>
+    <gid><![CDATA[2259]]></gid>
+    <sid><![CDATA[336985]]></sid>
+    <group_name><![CDATA[Fin]]></group_name>
+    <group_order><![CDATA[3]]></group_order>
     <description/>
     <language><![CDATA[fr]]></language>
     <randomization_group/>
@@ -75,24 +85,18 @@
     <gid><![CDATA[2143]]></gid>
     <type><![CDATA[X]]></type>
     <title><![CDATA[question01]]></title>
-    <question><![CDATA[<div id="anim_desc">
+    <question><![CDATA[<script type="text/javascript" src="mango/mango_dictator/scripts/plugin.js"></script>
+<div id="anim_desc">
+	Cette tâche comporte un participant A et un participant B. Votre rôle (participant A ou B) est indiqué au moment de prendre votre décision.<br />
 	<p>
-		Dans ce jeu, des groupes de 2 participants (vous-même et 1 autre participant) sont formés par tirage au sort.</p>
-	<p>
-		<u><b>Rappel :</b></u> Le participant qui appartient à votre groupe au cours de cette partie <b>est différent</b> de ceux que vous rencontrez dans les autres parties de l’étude.</p>
-	<p>
-		Chaque groupe comporte un participant A et un participant B. Votre rôle (participant A ou B) est indiqué au moment de prendre votre décision.<br />
 		<br />
 		<b>Dans ce jeu, le participant A reçoit 10€. Le participant A doit ensuite décider combien d’euros pris sur cette somme seront transférés au participant B</b>.</p>
-	<p>
-		Pour mieux comprendre, regardez attentivement l'animation ci-dessous :&nbsp;<br />
-		<b>&nbsp;</b><br />
-		&nbsp;</p>
-	<div style="text-align: center;">
-		&nbsp;</div>
-</div>
+	Pour mieux comprendre, cliquez ci-dessous pour regarder l'animation :</div>
 <div class="deroulement" id="eiContainer">
-	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="330" id="ExternalInterfaceExample" width="600"><param name="movie" value="mango/mango_dictator/animations/dictator_description_fr.swf" /><param name="quality" value="high" /><param name="allowScriptAccess" value="sameDomain" /><embed align="middle" allowscriptaccess="sameDomain" height="330" loop="false" name="ExternalInterfaceExample" play="true" quality="high" src="mango/mango_dictator/animations/dictator_description_fr.swf" type="application/x-shockwave-flash" width="600" wmode="transparent"></embed></object></div>
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="330" id="ExternalInterfaceExample" width="600"><param name="movie" value="mango/mango_dictator/animations/dictator_description_fr.swf" /><param name="quality" value="high" /><param name="allowScriptAccess" value="sameDomain" /><embed align="middle" allowscriptaccess="sameDomain" height="330" loop="false" name="ExternalInterfaceExample" play="true" quality="high" src="mango/mango_dictator/animations/dictator_description_fr.swf" type="application/x-shockwave-flash" width="600" wmode="transparent"></embed></object>
+	<div class="start_animation">
+		<img alt="Start Animation" src="mango/mango_dictator/images/start_animation.png" /></div>
+</div>
 ]]></question>
     <preg/>
     <help/>
@@ -117,6 +121,7 @@ var help = "<br/>Dans cette partie, des groupes de 2 participants (vous-même et
 $(document).ready(
    function(){
       $('#anim_sentence').after($('.asterisque'));
+      $('#movesubmitbtn').text('Suivant');
    }
 );
 </script>
@@ -141,15 +146,10 @@ Vous avez 10€ en votre possession. Combien voulez-vous transférer au particip
     <gid><![CDATA[2206]]></gid>
     <type><![CDATA[X]]></type>
     <title><![CDATA[question00]]></title>
-    <question><![CDATA[<script type="text/javascript" src="mango/mango_dictator/scripts/countUp.min.js"></script><script type="text/javascript">
+    <question><![CDATA[<p>
+	<script type="text/javascript" src="mango/mango_dictator/scripts/countUp.min.js"></script><script type="text/javascript">
 $(document).ready(
 	function() {
-		$.ajax({
-			type: "GET",
-			url: rooturl + "/mango/matching_coop.php",
-			data: "token={TOKEN}&survey={SID}"
-		}).success(
-			function() {
 				$.ajax({
 					type: "GET",
 					url: rooturl + "mango/mango_dictator/services/get_matching.php",
@@ -171,14 +171,38 @@ $(document).ready(
 						}
 					}
 				);
-			}
-		);
 	}
 );
-</script>Vous avez été matché avec le participant
+</script><span style="font-size:14px;"><strong>Dans la Tâche 1, des groupes de 2 participants (vous-même et un autre participant) sont formés par tirage au sort.</strong></span></p>
+<p>
+	Pour la Tâche 1, vous avez été associé au participant numéro</p>
 <div id="counter_0" style="display: inline;">
 	&nbsp;</div>
-.]]></question>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+<p>
+	<u>Rappel :</u> Le participant qui appartient à votre groupe au cours de cette tâche est différent de ceux que vous rencontrez dans les autres tâches de l’étude.</p>
+]]></question>
+    <preg/>
+    <help/>
+    <other><![CDATA[N]]></other>
+    <mandatory><![CDATA[N]]></mandatory>
+    <question_order><![CDATA[0]]></question_order>
+    <language><![CDATA[fr]]></language>
+    <parent_qid><![CDATA[0]]></parent_qid>
+    <scale_id><![CDATA[0]]></scale_id>
+    <same_default><![CDATA[0]]></same_default>
+    <relevance><![CDATA[1]]></relevance>
+   </row>
+   <row>
+    <qid><![CDATA[9507]]></qid>
+    <sid><![CDATA[336985]]></sid>
+    <gid><![CDATA[2259]]></gid>
+    <type><![CDATA[X]]></type>
+    <title><![CDATA[question00]]></title>
+    <question><![CDATA[Bravo ! Vous avez terminé la Tâche 1. Passons à la Tâche 2. ]]></question>
     <preg/>
     <help/>
     <other><![CDATA[N]]></other>
@@ -216,7 +240,7 @@ $(document).ready(
     <qid><![CDATA[7695]]></qid>
     <sid><![CDATA[336985]]></sid>
     <gid><![CDATA[2144]]></gid>
-    <type><![CDATA[T]]></type>
+    <type><![CDATA[K]]></type>
     <title><![CDATA[1]]></title>
     <question/>
     <other><![CDATA[N]]></other>
@@ -250,6 +274,11 @@ $(document).ready(
     <qid><![CDATA[7694]]></qid>
     <attribute><![CDATA[slider_max]]></attribute>
     <value><![CDATA[10]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[7694]]></qid>
+    <attribute><![CDATA[slider_middlestart]]></attribute>
+    <value><![CDATA[1]]></value>
    </row>
    <row>
     <qid><![CDATA[7694]]></qid>
@@ -336,7 +365,7 @@ $(document).ready(
     <usecookie><![CDATA[N]]></usecookie>
     <allowregister><![CDATA[N]]></allowregister>
     <allowsave><![CDATA[Y]]></allowsave>
-    <autonumber_start><![CDATA[25]]></autonumber_start>
+    <autonumber_start><![CDATA[105]]></autonumber_start>
     <autoredirect><![CDATA[Y]]></autoredirect>
     <allowprev><![CDATA[N]]></allowprev>
     <printanswers><![CDATA[N]]></printanswers>
