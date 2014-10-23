@@ -1,5 +1,23 @@
+.buttons {
+	margin-bottom: 50px;
+}
+
 .btn-cancel,
 .btn-save,
-.btn-delete {
+.btn-delete,
+.delete-game {
 	margin-right: 10px;
+}
+
+.btn-cancel,
+.btn-save,
+.btn-delete,
+.add-game,
+.delete-game {
+	margin-right: 10px;
+	padding: 7px 14px;
+}
+
+input[type=checkbox] {
+	margin: 0 3px;
 }

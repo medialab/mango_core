@@ -9,6 +9,8 @@ CREATE TABLE IF NOT EXISTS `mango_surveys_router` (
 CREATE TABLE IF NOT EXISTS `mango_experiment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
+  `login_phase` tinyint(1) NOT NULL DEFAULT 0,
+  `results_phase` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

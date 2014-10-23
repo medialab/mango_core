@@ -29,6 +29,22 @@ class Router {
 	}
 	
 	/*** Functions ***/
+
+	/**
+	 * Return the id of the current experiment stored into the PHP session
+	 * Echo an error message if an error occurs
+	 *
+	 * @return the id of the current experiment
+	 **/
+	private function getCurrentExperiment() {
+		if(isset($_SESSION) && isset($_SESSION['experiment'])) {
+			$iExperimentId = (int) $_SESSION['experiment'];
+		} else {
+			echo $this->_translator->error_experiment;
+			exit();
+		}
+		return $iExperimentId;
+	}
 	
 	/**
 	 * Called at the beginning of the experiment
@@ -49,13 +65,7 @@ class Router {
 	 * @return $iSurveyNextId int id of the next suvey to be launched
 	 **/
 	function getNextSurvey() {
-		// Get the current experiment id
-		if(isset($_SESSION) && isset($_SESSION['experiment'])) {
-			$iExperimentId = (int) $_SESSION['experiment'];
-		} else {
-			echo $this->_translator->error_experiment;
-			exit();
-		}
+		$iExperimentId = $this->getCurrentExperiment();
 		// Get the order of the next survey
 		if(isset($_GET) && isset($_GET['sid'])) {
 			$iSurveyId = (int) $_GET['sid'];
@@ -65,7 +75,7 @@ class Router {
 				$iSurveyOrderNext = (int) $aRow['survey_order'] + 1;
 			}
 		} else {
-			$iSurveyOrderNext = 1;
+			$iSurveyOrderNext = 0;
 		}
 		// Get the id of the next survey to launch
 		$sQuery = "SELECT survey_id FROM mango_surveys_router WHERE experiment_id = $iExperimentId AND survey_order = $iSurveyOrderNext";
@@ -75,6 +85,21 @@ class Router {
 			$iSurveyNextId = (int) $aRow['survey_id'];
 		}
 		return $iSurveyNextId;
+	}
+
+	/**
+	 * Test if the current experiment has a result phase at the end
+	 *
+	 * @return boolean true if this experiment has a results phase, else return false
+	 **/
+	function hasResultsPhase() {
+		$iExperimentId = $this->getCurrentExperiment();
+		$sQuery = "SELECT results_phase FROM mango_experiment WHERE id = $iExperimentId";
+		$oResult = $this->oDbConnection->query($sQuery);
+		while($aRow = mysqli_fetch_array($oResult)) {
+			$bExperimentResultsPhase = (int) $aRow['results_phase'];
+		}
+		return $bExperimentResultsPhase;
 	}
 	
 	/**
@@ -86,6 +111,7 @@ class Router {
 	 * @return void
 	 **/
 	function launchSurvey($iSurveyId) {
+		$iExperimentId = $this->getCurrentExperiment();
 		// Get the root url
 		$sRootUrl = "http://{$_SERVER['HTTP_HOST']}/" . $this->oParams->sInstallFolder;
 		// Get the user token
@@ -96,8 +122,13 @@ class Router {
 		}
 		$sLang = (isset($_SESSION['s_lang']) ? $_SESSION['s_lang'] : (isset($_GET['lang']) ? $_GET['lang'] : 'en'));
 		if($iSurveyId == -1) {
-			// No more game to launch, redirect to the results page
-			$sUrl = $sRootUrl;
+			// If no more game but a result page, display it
+			if($this->hasResultsPhase()) {
+				$sUrl = $sRootUrl . "mango/results_" . $iExperimentId . ".php";
+			// Else redirect to the ending page
+			} else {
+				$sUrl = $sRootUrl;
+			}
 		} else {
 			$sUrl = $sRootUrl . "index.php?r=survey/index/sid/$iSurveyId/lang/$sLang/token/$iToken";
 		}

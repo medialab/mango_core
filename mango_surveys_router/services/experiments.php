@@ -8,17 +8,15 @@ require_once('experiment.php');
 
 $oExperimentClass = new Experiment();
 
-// By default, select the first experiment
-$aCurrentExperiment = $oExperimentClass->getExperiment(1);
-
 $sHtml = '<html>';
 $sHtml .= '<head>';
-$sHtml .= '<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">';
+$sHtml .= '<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />';
 $sHtml .= '<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>';
 $sHtml .= '<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>';
 $sHtml .= '<script type="text/javascript" src="../scripts/experiments.js"></script>';
 $sHtml .= '<script type="text/javascript" src="../../lang/lang.js"></script>';
-$sHtml .= '<link rel="stylesheet" type="text/css" href="../css/experiments.css"/>';
+$sHtml .= '<link rel="stylesheet" type="text/css" href="../css/experiments.css" />';
+$sHtml .= '<meta charset="utf-8" />';
 $sHtml .= '</head>';
 $sHtml .= '<body>';
 $sHtml .= '<div class="container">';
@@ -52,22 +50,35 @@ $sHtml .= '<input type="text" class="form-control" placeholder="Enter the experi
 $sHtml .= '</div>';
 $sHtml .= '</div>';
 
+// Experiment parameters
+$sHtml .= '<div class="form-group">';
+$sHtml .= '<div class="col-sm-5 col-sm-offset-2">';
+$sHtml .= '<input type="checkbox" class="login-phase" />Phase de login<br/>';
+$sHtml .= '<input type="checkbox" class="results-phase" />Phase de résultats';
+$sHtml .= '</div>';
+$sHtml .= '</div>';
+
 // Games list
 $aGames = $oExperimentClass->getAllGames();
-$sHtml .= '<div class="form-group list-games" index="1">';
+$sHtml .= '<div class="games sortable">';
+$sHtml .= '<div class="form-group list-games" index="0">';
 $sHtml .= '<label for="" class="col-sm-2 control-label">Game 1</label>';
 $sHtml .= '<div class="col-sm-5">';
 $sHtml .= '<select class="form-control">';
 $sHtml .= '<option value="0"></option>';
 foreach($aGames as $iKey => $aGame) {
-	$sHtml .= '<option value="' . $aGame['surveyls_survey_id'] . '">' . $aGame['surveyls_title'] . '</option>';
+	$sHtml .= '<option value="' . $aGame['surveyls_survey_id'] . '">' . utf8_encode($aGame['surveyls_title']) . '</option>';
 }
 $sHtml .= '</select>';
 $sHtml .= '</div>';
 $sHtml .= '<div class="col-sm-2 buttons-game">';
+$sHtml .= '<button type="button" class="btn btn-default btn-lg delete-game">';
+$sHtml .= '<span class="glyphicon glyphicon-minus-sign"></span>';
+$sHtml .= '</button>';
 $sHtml .= '<button type="button" class="btn btn-default btn-lg add-game">';
 $sHtml .= '<span class="glyphicon glyphicon-plus-sign"></span>';
 $sHtml .= '</button>';
+$sHtml .= '</div>';
 $sHtml .= '</div>';
 $sHtml .= '</div>';
 

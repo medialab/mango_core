@@ -5,8 +5,11 @@ function resetForm() {
 	// Select the default empty experiment
 	$('.list-experiments option').first().attr('selected', 'selected');
 	$('.experiment-id').val('');
-	// Set experiment name to empty
+	// Empty experiment name
 	$('.experiment-name input').val('');
+	// Uncheck experiment parameters
+	$('.login-phase').prop('checked', 0);
+	$('.results-phase').prop('checked', 0);
 	// Remove all but first games
 	$('.list-games').slice(1).remove();
 	// Select the default empty game
@@ -19,6 +22,8 @@ function resetForm() {
 	$('.btn-delete').remove();
 	// Remove export button
 	$('.btn-export').remove();
+	// Enable all buttons
+	$('.buttons .btn').attr('disabled', false);
 	// Reset the experiments list
 	$('.list-experiments select > option').remove();
 	$.ajax({
@@ -40,7 +45,7 @@ function addNewGame(iGameIndex) {
 	// Set correct label and class
 	iGameIndex = typeof iGameIndex !== 'undefined' ? iGameIndex : (parseInt(oGameNew.attr('index')) + 1);
 	oGameNew.attr('index', iGameIndex);
-	oGameNew.find('label').text('Game ' + iGameIndex);
+	oGameNew.find('label').text('Game ' + (parseInt(iGameIndex) + 1));
 	// Unselect default game
 	oGameNew.find('option').removeAttr('selected');
 	// Remove the add button
@@ -55,8 +60,27 @@ function addNewGame(iGameIndex) {
 	$('.list-games').last().after(oGameNew);
 }
 
+function refreshForm(event, ui) {
+	console.log('refreshForm');
+	// Replace add game button in front of the first game
+	$('.buttons-game:first').append($('.add-game'));
+	// Reset the game number
+	$('.list-games').each(
+		function(index) {
+			$(this).attr('index', index);
+			$(this).find('label').text('Game ' + (index + 1));
+		}
+	);
+}
+
 $(document).ready(
 	function () {
+		// Add sortable table
+		$('.sortable').sortable({
+			update : function(event, ui) {
+				refreshForm(event, ui);
+			}
+		});
 		// Load another experiment
 		$('.list-experiments select').change(
 			function() {
@@ -75,6 +99,9 @@ $(document).ready(
 							$('.experiment-id').val(oExperiment.id);
 							// Set experiment name
 							$('.experiment-name input').val(oExperiment.name);
+							// Set experiment parameters
+							$('.login-phase').prop('checked', parseInt(oExperiment.login_phase));
+							$('.results-phase').prop('checked', parseInt(oExperiment.results_phase));
 							// Remove all but first games
 							$('.list-games').slice(1).remove();
 							$('.list-games option').first().attr('selected', 'selected');
@@ -122,6 +149,8 @@ $(document).ready(
 				$('.buttons .btn').attr('disabled', true);
 				var iExperimentId = $('.experiment-id').val();
 				var sExperimentName = $('.experiment-name input').val();
+				var bExperimentLoginPhase = $('.login-phase').prop('checked');
+				var bExperimentResultsPhase = $('.results-phase').prop('checked');
 				var bGameError = false;
 				var aExperimentGames = new Array();
 				$('.list-games').each(function(index) {
@@ -139,7 +168,7 @@ $(document).ready(
 					$.ajax({
 						type: 'POST',
 						url: 'save_experiment.php',
-						data: {experiment_id: iExperimentId, experiment_name: sExperimentName, experiment_games: aExperimentGames},
+						data: {experiment_id: iExperimentId, experiment_name: sExperimentName, experiment_login_phase: bExperimentLoginPhase, experiment_results_phase: bExperimentResultsPhase, experiment_games: aExperimentGames},
 						success: function() {
 							// Enable interaction buttons
 							resetForm();
