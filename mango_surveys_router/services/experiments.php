@@ -40,7 +40,12 @@ $sHtml .= '</div>';
 $sHtml .= '</div>';
 
 // Experiment Id
-$sHtml .= '<input type="hidden" class="experiment-id" value="">';
+$sHtml .= '<div class="form-group">';
+$sHtml .= '<label class="col-sm-2 control-label">Id</label>';
+$sHtml .= '<div class="col-sm-5">';
+$sHtml .= '<input type="text" class="form-control experiment-id" value="" disabled>';
+$sHtml .= '</div>';
+$sHtml .= '</div>';
 
 // Experiment name
 $sHtml .= '<div class="form-group experiment-name">';
