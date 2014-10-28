@@ -97,7 +97,7 @@ $sHtml .= '</div>';
 // Experiment link
 $sHtml .= '<div class="form-group">';
 $sHtml .= '<div class="col-sm-5 col-sm-offset-2">';
-$sHtml .= '<a class="experiment-url hide" href="">Test url</a>';
+$sHtml .= '<a class="experiment-url hide" href="" target="_blank">Test url</a>';
 $sHtml .= '</div>';
 $sHtml .= '</div>';
 
