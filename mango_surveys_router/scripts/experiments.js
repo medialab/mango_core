@@ -4,7 +4,8 @@
 function resetForm() {
 	// Select the default empty experiment
 	$('.list-experiments option').first().attr('selected', 'selected');
-	$('.experiment-id').val('');
+	// Reset the experiment Id
+	$('.experiment-id').text('');
 	// Empty experiment name
 	$('.experiment-name input').val('');
 	// Uncheck experiment parameters
@@ -26,6 +27,8 @@ function resetForm() {
 	$('.buttons .btn').attr('disabled', false);
 	// Reset the experiments list
 	$('.list-experiments select > option').remove();
+	// Hide the experiment url
+	$('.experiment-url').addClass('hide');
 	$.ajax({
 		type: 'POST',
 		url: 'get_all_experiments.php',
@@ -96,7 +99,7 @@ $(document).ready(
 						success: function(data) {
 							var oExperiment = jQuery.parseJSON(data);
 							// Set experiment id
-							$('.experiment-id').val(oExperiment.id);
+							$('.experiment-id').text(oExperiment.id);
 							// Set experiment name
 							$('.experiment-name input').val(oExperiment.name);
 							// Set experiment parameters
@@ -119,6 +122,9 @@ $(document).ready(
 								$('.buttons').append('<button type="button" class="btn btn-primary btn-delete">Delete experiment</button>');
 								$('.buttons').append('<button type="button" class="btn btn-primary btn-export">Export results</button>');
 							}
+							// Set experiment url
+							$('.experiment-url').removeClass('hide');
+							$('.experiment-url').attr('href', oExperiment.url);
 						}
 					});
 				}
@@ -147,7 +153,7 @@ $(document).ready(
 			function() {
 				// Disable interaction buttons
 				$('.buttons .btn').attr('disabled', true);
-				var iExperimentId = $('.experiment-id').val();
+				var iExperimentId = $('.experiment-id').text();
 				var sExperimentName = $('.experiment-name input').val();
 				var bExperimentLoginPhase = $('.login-phase').prop('checked');
 				var bExperimentResultsPhase = $('.results-phase').prop('checked');
@@ -185,7 +191,7 @@ $(document).ready(
 				// Disable interactions buttons
 				$('.buttons .btn').attr('disabled', true);
 				// Get current experiment id
-				var iExperimentId = $('.experiment-id').val();
+				var iExperimentId = $('.experiment-id').text();
 				if(iExperimentId != '' && iExperimentId != 0) {
 					$.ajax({
 						type: 'POST',
@@ -206,7 +212,7 @@ $(document).ready(
 				// Disable interactions buttons
 				$('.buttons .btn').attr('disabled', true);
 				// Get current experiment id
-				var iExperimentId = $('.experiment-id').val();
+				var iExperimentId = $('.experiment-id').text();
 				if(iExperimentId != '' && iExperimentId != 0) {
 					$.ajax({
 						type: 'POST',

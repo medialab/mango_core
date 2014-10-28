@@ -43,7 +43,7 @@ $sHtml .= '</div>';
 $sHtml .= '<div class="form-group">';
 $sHtml .= '<label class="col-sm-2 control-label">Id</label>';
 $sHtml .= '<div class="col-sm-5">';
-$sHtml .= '<input type="text" class="form-control experiment-id" value="" disabled>';
+$sHtml .= '<p class="form-control-static experiment-id"></p>';
 $sHtml .= '</div>';
 $sHtml .= '</div>';
 
@@ -88,8 +88,17 @@ $sHtml .= '</div>';
 $sHtml .= '</div>';
 
 // Buttons
-$sHtml .= '<div class="col-sm-7 text-center buttons">';
+$sHtml .= '<div class="form-group">';
+$sHtml .= '<div class="col-sm-7 text-center">';
 $sHtml .= '<button type="button" class="btn btn-primary btn-save">Add experiment</button>';
+$sHtml .= '</div>';
+$sHtml .= '</div>';
+
+// Experiment link
+$sHtml .= '<div class="form-group">';
+$sHtml .= '<div class="col-sm-5 col-sm-offset-2">';
+$sHtml .= '<a class="experiment-url hide" href="">Test url</a>';
+$sHtml .= '</div>';
 $sHtml .= '</div>';
 
 $sHtml .= '</form>';

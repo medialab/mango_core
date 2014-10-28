@@ -50,6 +50,7 @@ class Experiment {
 		while($aRow = mysqli_fetch_array($oResult)) {
 			$aGames = $this->getGamesFromExperiment($iExperimentId);
 			$aRow['games'] = $aGames;
+			$aRow['url'] = $this->getUrl($iExperimentId);
 			return $aRow;
 		}
 	}
@@ -161,6 +162,11 @@ class Experiment {
 		$oResult = $this->oDbConnection->query($sQuery);
 		$aRow = mysqli_fetch_array($oResult);
 		return $aRow['id'];
+	}
+
+	function getUrl($iExperimentId) {
+		return 'http://grebdioz.sciences-po.fr/mango/mango_surveys_router/services/plugin.php?experiment=' . $iExperimentId . '&token=test&lang=fr&redirect';
+
 	}
 }
 
