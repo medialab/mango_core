@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+	<xmldata id="login">
+		<translation lang="en">Login</translation>
+		<translation lang="fr">Login</translation>
+	</xmldata>
+	<xmldata id="login_button">
+		<translation lang="en">Next</translation>
+		<translation lang="fr">Suivant</translation>
+	</xmldata>
+	<xmldata id="login_text">
+		<translation lang="en"><![CDATA[This is a controlled survey. You need a valid token to participate.<br/>If you have been issued a token, please enter it in the box below and click "Next".]]></translation>
+		<translation lang="fr"><![CDATA[Ceci est un questionnaire en accès restreint. Vous devez être en possession d'un code d'accès valide pour participer.<br/>Si un code d'accès vous a été attribué, veuillez l'entrer dans le champ ci-dessous et cliquer sur le bouton "Suivant".]]></translation>
+	</xmldata>
+</language>
