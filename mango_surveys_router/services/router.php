@@ -19,9 +19,9 @@ class Router {
 	/*** Constructor ***/
 	
 	function __construct() {
-		$lang = $_GET['lang'];
-		$file = "../lang/lang.xml";
-		$this->_translator = new translator($lang, $file);
+		$this->sLang 	= $_GET['lang'];
+		$sFile			= "../lang/lang.xml";
+		$this->_translator = new translator($this->sLang, $sFile);
 
 		// DB Connection
 		$this->oParams			= json_decode(file_get_contents('../../config.json'));
@@ -120,17 +120,16 @@ class Router {
 			echo $this->_translator->error_token;
 			exit();
 		}
-		$sLang = (isset($_SESSION['s_lang']) ? $_SESSION['s_lang'] : (isset($_GET['lang']) ? $_GET['lang'] : 'en'));
 		if($iSurveyId == -1) {
 			// If no more game but a result page, display it
 			if($this->hasResultsPhase()) {
-				$sUrl = $sRootUrl . "mango/results_" . $iExperimentId . ".php";
+				$sUrl = $sRootUrl . 'mango/results_' . $iExperimentId . '.php';
 			// Else redirect to the ending page
 			} else {
-				$sUrl = $sRootUrl;
+				$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/exit.php?lang=' . $this->sLang;
 			}
 		} else {
-			$sUrl = $sRootUrl . "index.php?r=survey/index/sid/$iSurveyId/lang/$sLang/token/$iToken";
+			$sUrl = $sRootUrl . "index.php?r=survey/index/sid/$iSurveyId/lang/" . $this->sLang . "/token/$iToken";
 		}
 		if(isset($_GET) && isset($_GET['redirect'])) {
 			header("Location: {$sUrl}");
