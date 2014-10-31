@@ -1092,3 +1092,9 @@ h1.sid.survey-356627 .groupname {
 h1.sid.survey-356627 .surveydescription {
   display: inline;
 }
+h1.sid.survey-115247 .groupname {
+  display: none;
+}
+h1.sid.survey-115247 .surveydescription {
+  display: inline;
+}
