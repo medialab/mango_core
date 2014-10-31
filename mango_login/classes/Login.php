@@ -28,6 +28,10 @@ class Login
         // create/read session, absolutely necessary
         session_start();
 
+        // create a database connection, using the constants from config/db.php (which we loaded in index.php)
+        $this->oParams = json_decode(file_get_contents('../config.json'));
+        $this->db_connection = new mysqli($this->oParams->sDbHost, $this->oParams->sDbUser, $this->oParams->sDbPassword, $this->oParams->sDbDatabase) or die("Error " . mysqli_error($link));
+
         // check the possible login actions:
         // if user tried to log out (happen when user clicks logout button)
         if (isset($_GET["logout"])) {
@@ -45,15 +49,15 @@ class Login
     private function dologinWithPostData()
     {
         // check login form contents
-        if (empty($_POST['user_name'])) {
+        if (empty($_POST['token'])) {
             $this->errors[] = "Username field was empty.";
         } elseif (empty($_POST['user_password'])) {
             $this->errors[] = "Password field was empty.";
-        } elseif (!empty($_POST['user_name']) && !empty($_POST['user_password'])) {
+        } elseif (!empty($_POST['token']) && !empty($_POST['user_password'])) {
 
-            // create a database connection, using the constants from config/db.php (which we loaded in index.php)
-            $this->oParams = json_decode(file_get_contents('../../config.json'));
-            $this->db_connection = new mysqli($this->oParams->sDbHost, $this->oParams->sDbUser, $this->oParams->sDbPassword, $this->oParams->sDbDatabase) or die("Error " . mysqli_error($link));
+            // Get form data
+            $iExperimentId = $_POST['experiment'];
+            $sLang = $_POST['lang'];
 
             // change character set to utf8 and check it
             if (!$this->db_connection->set_charset("utf8")) {
@@ -64,14 +68,10 @@ class Login
             if (!$this->db_connection->connect_errno) {
 
                 // escape the POST stuff
-                $user_name = $this->db_connection->real_escape_string($_POST['user_name']);
+                $user_name = $this->db_connection->real_escape_string($_POST['token']);
 
                 // database query, getting all the info of the selected user
-                $sql = "SELECT login, password
-                        FROM mango_users
-                        WHERE login = '" . $user_name . "';";
-                echo $sql;
-                echo '<br/>';
+                $sql = "SELECT login, password FROM mango_users WHERE login = '$user_name' AND experiment_id = $iExperimentId;";
                 $result_of_login_check = $this->db_connection->query($sql);
 
                 // if this user exists
@@ -84,9 +84,10 @@ class Login
                     if (password_verify($_POST['user_password'], $result_row->password)) {
 
                         // write user data into PHP SESSION (a file on your server)
-                        $_SESSION['user_name'] = $result_row->login;
-                        $_SESSION['user_login_status'] = 1;
-
+                        $_SESSION['user_name']              = $result_row->login;
+                        $_SESSION['user_login_status']      = 1;
+                        $_SESSION['mango_experiment_id']    = $iExperimentId;
+                        $_SESSION['mango_lang']             = $sLang;
                     } else {
                         $this->errors[] = "Wrong password. Try again.";
                     }
@@ -123,5 +124,13 @@ class Login
         }
         // default return
         return false;
+    }
+
+    public function redirectToRouter()
+    {
+        // Get the root url
+        $sRootUrl   = "http://{$_SERVER['HTTP_HOST']}/" . $this->oParams->sInstallFolder;
+        $sUrl       = $sRootUrl . 'mango/mango_surveys_router/services/plugin.php?experiment=' . $_SESSION['mango_experiment_id'] . '&token=' . $_SESSION['user_name'] . '&lang=' . $_SESSION['mango_lang'] . '&redirect';
+        header("Location: {$sUrl}");
     }
 }

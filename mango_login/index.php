@@ -11,6 +11,10 @@
  * @license http://opensource.org/licenses/MIT MIT License
  */
 
+$iExperimentId  = isset($_GET['experiment']) ? $_GET['experiment'] : (isset($_POST['experiment']) ? $_POST['experiment'] : -1);
+$sToken         = isset($_GET['token']) ? $_GET['token'] : (isset($_POST['token']) ? $_POST['token'] : '');
+$sLang          = isset($_GET['lang']) ? $_GET['lang'] : (isset($_POST['lang']) ? $_POST['lang'] : 'en');
+
 // checking for minimum PHP version
 if (version_compare(PHP_VERSION, '5.3.7', '<')) {
     exit("Sorry, Simple PHP Login does not run on a PHP version smaller than 5.3.7 !");
@@ -31,8 +35,8 @@ $login = new Login();
 if ($login->isUserLoggedIn() == true) {
     // the user is logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are logged in" view.
-    include("views/logged_in.php");
-
+    // include("views/logged_in.php");
+    $login->redirectToRouter();
 } else {
     // the user is not logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are not logged in" view.
