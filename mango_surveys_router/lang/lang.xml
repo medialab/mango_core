@@ -20,4 +20,12 @@
 		<translation lang="en">This experimentat is not available on smartphone or on tablet. Please use a computer to fill this experiment.</translation>
 		<translation lang="fr"><![CDATA[Cette expérimentation n'est pas disponible sur Smartphone et sur tablette. Merci d'utiliser un ordinateur pour prendre part à cette expérimentation.]]></translation>
 	</xmldata>
+	<xmldata id="exit_thank_you">
+		<translation lang="en">Thank you</translation>
+		<translation lang="fr">Merci</translation>
+	</xmldata>
+	<xmldata id="exit_message">
+		<translation lang="en"><![CDATA[This experiment is over.<br/>Thank you for your paticipation.]]></translation>
+		<translation lang="fr"><![CDATA[Cette enquête est à présent terminée.<br/>Merci d'avoir participé.]]></translation>
+	</xmldata>
 </language>
