@@ -130,7 +130,7 @@ $(document).ready(
 Votre rôle est celui du participant A.<br />
 Vous avez 10€ en votre possession. Combien voulez-vous transférer au participant B?]]></question>
     <preg/>
-    <help><![CDATA[<span class="aide">Vous pouvez à tout moment consulter les règles du jeu en cliquant sur le bouton "?" (à gauche)</span>]]></help>
+    <help/>
     <other><![CDATA[N]]></other>
     <mandatory><![CDATA[Y]]></mandatory>
     <question_order><![CDATA[0]]></question_order>
@@ -365,12 +365,12 @@ $(document).ready(
     <usecookie><![CDATA[N]]></usecookie>
     <allowregister><![CDATA[N]]></allowregister>
     <allowsave><![CDATA[Y]]></allowsave>
-    <autonumber_start><![CDATA[105]]></autonumber_start>
+    <autonumber_start><![CDATA[1]]></autonumber_start>
     <autoredirect><![CDATA[Y]]></autoredirect>
     <allowprev><![CDATA[N]]></allowprev>
     <printanswers><![CDATA[N]]></printanswers>
-    <ipaddr><![CDATA[N]]></ipaddr>
-    <refurl><![CDATA[Y]]></refurl>
+    <ipaddr><![CDATA[Y]]></ipaddr>
+    <refurl><![CDATA[N]]></refurl>
     <publicstatistics><![CDATA[N]]></publicstatistics>
     <publicgraphs><![CDATA[N]]></publicgraphs>
     <listpublic><![CDATA[N]]></listpublic>
@@ -390,14 +390,14 @@ $(document).ready(
     <showqnumcode><![CDATA[X]]></showqnumcode>
     <bounceprocessing><![CDATA[N]]></bounceprocessing>
     <showwelcome><![CDATA[N]]></showwelcome>
-    <showprogress><![CDATA[Y]]></showprogress>
+    <showprogress><![CDATA[N]]></showprogress>
     <navigationdelay><![CDATA[0]]></navigationdelay>
     <nokeyboard><![CDATA[N]]></nokeyboard>
     <alloweditaftercompletion><![CDATA[N]]></alloweditaftercompletion>
     <emailnotificationto/>
     <googleanalyticsstyle><![CDATA[0]]></googleanalyticsstyle>
     <googleanalyticsapikey/>
-    <sendconfirmation><![CDATA[Y]]></sendconfirmation>
+    <sendconfirmation><![CDATA[N]]></sendconfirmation>
     <questionindex><![CDATA[0]]></questionindex>
    </row>
   </rows>
@@ -437,7 +437,7 @@ $(document).ready(
     <surveyls_description/>
     <surveyls_welcometext/>
     <surveyls_endtext/>
-    <surveyls_url><![CDATA[http://grebdioz.sciences-po.fr/mango/mango_surveys_router/services/plugin.php?token={TOKEN}&sid={SID}&redirect]]></surveyls_url>
+    <surveyls_url><![CDATA[mango/mango_surveys_router/services/plugin.php?token={TOKEN}&sid={SID}&lang={SURVEYLANGUAGE}&redirect]]></surveyls_url>
     <surveyls_urldescription/>
     <surveyls_email_invite_subj><![CDATA[Invitation à participer à un questionnaire]]></surveyls_email_invite_subj>
     <surveyls_email_invite><![CDATA[Cher(e) {FIRSTNAME},<br />
