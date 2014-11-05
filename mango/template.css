@@ -975,6 +975,19 @@ div.selected_game{
   padding-top: 20px;
 }
 
+.socialmotivation.training .instructions {
+  margin: auto;
+}
+
+.socialmotivation.training .instructions .short,
+.socialmotivation.training .instructions .long {
+  display: inline-block;
+}
+
+.socialmotivation.training .instructions .long {
+  padding-left: 150px;
+}
+
 .socialmotivation .cross {
   font-size: 30px;
   height: 329px;
