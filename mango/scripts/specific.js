@@ -1,5 +1,6 @@
 function goout() {
 	$('#movesubmitbtn').click();
+	$('#defaultbtn').click();
 }
 
 $(document).ready(
