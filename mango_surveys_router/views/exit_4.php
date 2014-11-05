@@ -31,7 +31,19 @@ $sTranslator	= new translator($sLang, $sLangFile);
 		    </div>
 		    <div id="right">
 		    	<div class="game">
-		    		<?php echo $sTranslator->exit_message ?>
+		    		<p>
+			    		Cette enquête est maintenant terminée.
+			    		Nous vous remercions encore une fois très chaleureusement d’y avoir participé :
+			    		vos réponses nous aiderons à faire aboutir votre projet.
+			    		Nous vous souhaitons une excellente continuation.</p>
+		    		<p>
+		    			Nous vous rappelons que toutes vos réponses seront traitées de manière strictement anonyme.
+		    		</p>
+		    		<p>
+		    			N’hésitez pas à contacter Joyce Sultan (<a href="mailto:jsultan@povertyactionlab.org">jsultan@povertyactionlab.org</a> 
+		    			ou par téléphone au  06.52.45.74.81) ou Alice Danon (<a href="mailto:jsultan@povertyactionlab.org">adanon@povertyactionlab.org</a>
+		    			ou par téléphone au 07.82.69.35.82) pour toute question concernant ce projet.
+		    		</p>
 		    	</div>
 		    </div>
 		</div>
