@@ -996,6 +996,45 @@ div.selected_game{
   visibility: hidden;
 }
 
+/* Cognitive games : Subtraction */
+
+.subtraction .container {
+  font-size: 20px;
+  margin: auto;
+  padding-top: 50px;
+  text-align: right;
+  width: 5%;
+}
+
+.subtraction div {
+  clear: both;
+  margin-bottom: 8px;
+}
+
+.subtraction .row input,
+.subtraction .minus {
+  float: left;
+  margin-left: 40%;
+}
+
+.subtraction .line {
+  border-bottom: 1px solid black;
+  height: 1px;
+  margin-bottom: 15px;
+}
+
+.subtraction .incorrectmessage,
+.subtraction .endmessage {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 50px;
+}
+
+.subtraction label.disabled {
+  color: darkgrey;
+}
+
 
 /* trans fixes */
 .hide {
