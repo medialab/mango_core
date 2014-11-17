@@ -45,7 +45,7 @@ class Experiment {
 	 * @return $aRow array name and list of this experiment games
 	 **/
 	function getExperiment($iExperimentId) {
-		$sQuery = "SELECT id, name, login_phase, results_phase FROM mango_experiment WHERE id = $iExperimentId";
+		$sQuery = "SELECT id, name, login_phase, results_phase, generate_tokens FROM mango_experiment WHERE id = $iExperimentId";
 		$oResult = $this->oDbConnection->query($sQuery);
 		while($aRow = mysqli_fetch_array($oResult)) {
 			$aGames = $this->getGamesFromExperiment($iExperimentId);
@@ -98,10 +98,10 @@ class Experiment {
 	 *
 	 * @return void
 	 **/
-	function saveExperiment($iExperimentId, $sExperimentName, $bExperimentLoginPhase, $bExperimentResultsPhase, $aExperimentGames) {
+	function saveExperiment($iExperimentId, $sExperimentName, $bExperimentLoginPhase, $bExperimentResultsPhase, $bExperimentGenerateTokens, $aExperimentGames) {
 		// If this experiment doesn't exist, add it
 		if($iExperimentId == '') {
-			$sQuery = "INSERT INTO mango_experiment (name, login_phase, results_phase) VALUES ('$sExperimentName', $bExperimentLoginPhase, $bExperimentResultsPhase)";
+			$sQuery = "INSERT INTO mango_experiment (name, login_phase, results_phase, generate_tokens) VALUES ('$sExperimentName', $bExperimentLoginPhase, $bExperimentResultsPhase, $bExperimentGenerateTokens)";
 			$oResult = $this->oDbConnection->query($sQuery);
 			$iExperimentId = $this->getExperimentIdByName($sExperimentName);
 			// Add all games
@@ -116,7 +116,7 @@ class Experiment {
 			$oResult = $this->oDbConnection->query($sQuery);
 		// If this experiment already exists, update it
 		} else {
-			$sQuery = "UPDATE mango_experiment SET name = '$sExperimentName', login_phase = $bExperimentLoginPhase, results_phase = $bExperimentResultsPhase WHERE id = $iExperimentId";
+			$sQuery = "UPDATE mango_experiment SET name = '$sExperimentName', login_phase = $bExperimentLoginPhase, results_phase = $bExperimentResultsPhase, generate_tokens = $bExperimentGenerateTokens WHERE id = $iExperimentId";
 			$oResult = $this->oDbConnection->query($sQuery);
 			// Remove all experiment games
 			$sQuery = "DELETE FROM mango_surveys_router WHERE experiment_id = $iExperimentId";

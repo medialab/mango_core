@@ -59,7 +59,8 @@ $sHtml .= '</div>';
 $sHtml .= '<div class="form-group">';
 $sHtml .= '<div class="col-sm-5 col-sm-offset-2">';
 $sHtml .= '<input type="checkbox" class="login-phase" />Phase de login<br/>';
-$sHtml .= '<input type="checkbox" class="results-phase" />Phase de résultats';
+$sHtml .= '<input type="checkbox" class="results-phase" />Phase de résultats<br/>';
+$sHtml .= '<input type="checkbox" class="generate-tokens" />Génération des tokens à la volée';
 $sHtml .= '</div>';
 $sHtml .= '</div>';
 

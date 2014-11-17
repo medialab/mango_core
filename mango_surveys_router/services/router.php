@@ -92,14 +92,45 @@ class Router {
 	 *
 	 * @return boolean true if this experiment has a results phase, else return false
 	 **/
-	function hasResultsPhase() {
-		$iExperimentId = $this->getCurrentExperiment();
+	function hasResultsPhase($iExperimentId) {
 		$sQuery = "SELECT results_phase FROM mango_experiment WHERE id = $iExperimentId";
 		$oResult = $this->oDbConnection->query($sQuery);
 		while($aRow = mysqli_fetch_array($oResult)) {
 			$bExperimentResultsPhase = (int) $aRow['results_phase'];
 		}
 		return $bExperimentResultsPhase;
+	}
+
+	/**
+	 * Test if the current experiment should generate its tokens on the fly
+	 *
+	 * @return boolean true if the experiment should generate its tokens on the fly
+	 **/
+	function shouldGenerateTokens($iExperimentId) {
+		$sQuery = "SELECT generate_tokens FROM mango_experiment WHERE id = $iExperimentId";
+		$oResult = $this->oDbConnection->query($sQuery);
+		while($aRow = mysqli_fetch_array($oResult)) {
+			$bExperimentGenerateTokens = (int) $aRow['generate_tokens'];
+		}
+		return $bExperimentGenerateTokens;
+	}
+
+	function addToken($iSurveyId, $iToken) {
+		if($iSurveyId != '' && $iToken != '') {
+			// Check if token already exists into database
+			$sQuery = "SELECT count(token) AS c FROM lime_tokens_$iSurveyId WHERE token = '$iToken'";
+			$oResult = $this->oDbConnection->query($sQuery);
+			$aRow = mysqli_fetch_array($oResult);
+			if($aRow['c'] == 0) {
+				// Create token into database
+				$query = "INSERT INTO lime_tokens_$iSurveyId (firstname, emailstatus, token, language, sent, remindersent, remindercount, completed, validfrom, validuntil, mpid)
+					VALUES ('$iToken', 'OK', '$iToken', 'fr', 'N', 'N', 0, 'N', NULL, NULL, NULL)";
+				if($stmt = $this->oDbConnection->prepare($query)) {
+					$stmt->execute();
+					$stmt->close();
+				}
+			}
+		}
 	}
 	
 	/**
@@ -120,10 +151,14 @@ class Router {
 			echo $this->_translator->error_token;
 			exit();
 		}
+		// If tokens should be generated on the fly
+		if($this->shouldGenerateTokens($iExperimentId)) {
+			$this->addToken($iSurveyId, $iToken);
+		}
 		if($iSurveyId == -1) {
 			// If no more game but a result page, display it
-			if($this->hasResultsPhase()) {
-				$sUrl = $sRootUrl . 'mango/results_' . $iExperimentId . '.php';
+			if($this->hasResultsPhase($iExperimentId)) {
+				$sUrl = $sRootUrl . 'mango/results_' . $iExperimentId . '.php?token=' . $iToken . '&lang=' . $this->sLang;
 			// Else redirect to the ending page
 			} else {
 				$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/exit_' . $iExperimentId . '.php?lang=' . $this->sLang;

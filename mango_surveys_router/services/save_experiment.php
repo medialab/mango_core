@@ -12,9 +12,10 @@ $iExperimentId				= $_POST['experiment_id'];
 $sExperimentName			= $_POST['experiment_name'];
 $bExperimentLoginPhase		= $_POST['experiment_login_phase'];
 $bExperimentResultsPhase	= $_POST['experiment_results_phase'];
+$bExperimentGenerateTokens	= $_POST['experiment_generate_tokens'];
 $aExperimentGames			= $_POST['experiment_games'];
 
 $oExperimentClass			= new Experiment();
-$oExperimentClass->saveExperiment($iExperimentId, $sExperimentName, $bExperimentLoginPhase, $bExperimentResultsPhase, $aExperimentGames);
+$oExperimentClass->saveExperiment($iExperimentId, $sExperimentName, $bExperimentLoginPhase, $bExperimentResultsPhase, $bExperimentGenerateTokens, $aExperimentGames);
 
 ?>

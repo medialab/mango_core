@@ -11,6 +11,7 @@ function resetForm() {
 	// Uncheck experiment parameters
 	$('.login-phase').prop('checked', 0);
 	$('.results-phase').prop('checked', 0);
+	$('.generate-tokens').prop('checked', 0);
 	// Remove all but first games
 	$('.list-games').slice(1).remove();
 	// Select the default empty game
@@ -105,6 +106,7 @@ $(document).ready(
 							// Set experiment parameters
 							$('.login-phase').prop('checked', parseInt(oExperiment.login_phase));
 							$('.results-phase').prop('checked', parseInt(oExperiment.results_phase));
+							$('.generate-tokens').prop('checked', parseInt(oExperiment.generate_tokens));
 							// Remove all but first games
 							$('.list-games').slice(1).remove();
 							$('.list-games option').first().attr('selected', 'selected');
@@ -157,6 +159,7 @@ $(document).ready(
 				var sExperimentName = $('.experiment-name input').val();
 				var bExperimentLoginPhase = $('.login-phase').prop('checked');
 				var bExperimentResultsPhase = $('.results-phase').prop('checked');
+				var bExperimentGenerateTokens = $('.generate-tokens').prop('checked');
 				var bGameError = false;
 				var aExperimentGames = new Array();
 				$('.list-games').each(function(index) {
@@ -174,7 +177,7 @@ $(document).ready(
 					$.ajax({
 						type: 'POST',
 						url: 'save_experiment.php',
-						data: {experiment_id: iExperimentId, experiment_name: sExperimentName, experiment_login_phase: bExperimentLoginPhase, experiment_results_phase: bExperimentResultsPhase, experiment_games: aExperimentGames},
+						data: {experiment_id: iExperimentId, experiment_name: sExperimentName, experiment_login_phase: bExperimentLoginPhase, experiment_results_phase: bExperimentResultsPhase, experiment_generate_tokens : bExperimentGenerateTokens, experiment_games: aExperimentGames},
 						success: function() {
 							// Enable interaction buttons
 							resetForm();
