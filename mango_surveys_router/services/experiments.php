@@ -58,9 +58,9 @@ $sHtml .= '</div>';
 // Experiment parameters
 $sHtml .= '<div class="form-group">';
 $sHtml .= '<div class="col-sm-5 col-sm-offset-2">';
-$sHtml .= '<input type="checkbox" class="login-phase" />Phase de login<br/>';
-$sHtml .= '<input type="checkbox" class="results-phase" />Phase de résultats<br/>';
-$sHtml .= '<input type="checkbox" class="generate-tokens" />Génération des tokens à la volée';
+$sHtml .= '<input type="checkbox" class="login-phase" />Login phase<br/>';
+$sHtml .= '<input type="checkbox" class="results-phase" />Results phase<br/>';
+$sHtml .= '<input type="checkbox" class="generate-tokens" />On the fly token creation';
 $sHtml .= '</div>';
 $sHtml .= '</div>';
 
