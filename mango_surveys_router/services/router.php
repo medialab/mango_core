@@ -161,7 +161,11 @@ class Router {
 				$sUrl = $sRootUrl . 'mango/results_' . $iExperimentId . '.php?token=' . $iToken . '&lang=' . $this->sLang;
 			// Else redirect to the ending page
 			} else {
-				$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/exit_' . $iExperimentId . '.php?lang=' . $this->sLang;
+				if($iExperimentId == 1) {
+					$sUrl = 'http://surveys.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S14008323&id=' . $iToken . '&rewards=4&stat=complete';
+				} else {
+					$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/exit_' . $iExperimentId . '.php?lang=' . $this->sLang;
+				}
 			}
 		} else {
 			$sUrl = $sRootUrl . "index.php?r=survey/index/sid/$iSurveyId/lang/" . $this->sLang . "/token/$iToken";
