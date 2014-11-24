@@ -158,7 +158,7 @@ class Router {
 		if($iSurveyId == -1) {
 			// If no more game but a result page, display it
 			if($this->hasResultsPhase($iExperimentId)) {
-				$sUrl = $sRootUrl . 'mango/results_' . $iExperimentId . '.php?token=' . $iToken . '&lang=' . $this->sLang;
+				$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/results_' . $iExperimentId . '.php?token=' . $iToken . '&lang=' . $this->sLang;
 			// Else redirect to the ending page
 			} else {
 				if($iExperimentId == 1) {
