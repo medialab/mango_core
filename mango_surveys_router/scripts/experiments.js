@@ -119,11 +119,9 @@ $(document).ready(
 							// Change button label
 							$('.btn-save').text('Update experiment');
 							// Add cancel buttons
-							if(!$('.btn-cancel').length) {
-								$('.buttons').prepend('<button type="button" class="btn btn-primary btn-cancel">Cancel</button>');
-								$('.buttons').append('<button type="button" class="btn btn-primary btn-delete">Delete experiment</button>');
-								$('.buttons').append('<button type="button" class="btn btn-primary btn-export">Export results</button>');
-							}
+							$('.buttons').prepend('<button type="button" class="btn btn-primary btn-cancel">Cancel</button>');
+							$('.buttons').append('<button type="button" class="btn btn-primary btn-delete">Delete experiment</button>');
+							$('.buttons').append('<button type="button" class="btn btn-primary btn-export">Export results</button>');
 							// Set experiment url
 							$('.experiment-url').removeClass('hide');
 							$('.experiment-url').attr('href', oExperiment.url);
@@ -215,7 +213,7 @@ $(document).ready(
 				// Disable interactions buttons
 				$('.buttons .btn').attr('disabled', true);
 				// Get current experiment id
-				var iExperimentId = $('.experiment-id').text();
+				var iExperimentId = $('.experiment-id').text();	
 				if(iExperimentId != '' && iExperimentId != 0) {
 					$.ajax({
 						type: 'POST',
@@ -227,7 +225,7 @@ $(document).ready(
 								$('.messages').append('<div class="alert alert-danger">' + sResult.message + '</div>').delay(10000).slideUp(1000);
 							} else {
 								// Download results file
-								window.location.href = '../export_' + ((iExperimentId < 10) ? '0' + iExperimentId : iExperimentId) + '.csv';
+								window.location.href = 'export_' + iExperimentId + '.csv';
 							}
 							// Enable interaction buttons
 							$('.buttons .btn').attr('disabled', false);

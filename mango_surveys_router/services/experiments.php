@@ -90,7 +90,7 @@ $sHtml .= '</div>';
 
 // Buttons
 $sHtml .= '<div class="form-group">';
-$sHtml .= '<div class="col-sm-7 text-center">';
+$sHtml .= '<div class="col-sm-7 text-center buttons">';
 $sHtml .= '<button type="button" class="btn btn-primary btn-save">Add experiment</button>';
 $sHtml .= '</div>';
 $sHtml .= '</div>';
