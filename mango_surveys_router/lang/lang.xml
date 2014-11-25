@@ -28,4 +28,205 @@
 		<translation lang="en"><![CDATA[This experiment is over.<br/>Thank you for your paticipation.]]></translation>
 		<translation lang="fr"><![CDATA[Cette enquête est à présent terminée.<br/>Merci d'avoir participé.]]></translation>
 	</xmldata>
+	<xmldata id="results_title">
+		<translation lang="en">Earnings</translation>
+		<translation lang="fr"><![CDATA[Gains]]></translation>
+	</xmldata>
+	<xmldata id="results_section">
+		<translation lang="en">Section</translation>
+		<translation lang="fr"><![CDATA[Tâche]]></translation>
+	</xmldata>
+	<xmldata id="results_earnings_title">
+		<translation lang="en">Your fixed earnings</translation>
+		<translation lang="fr"><![CDATA[Votre gain fixe]]></translation>
+	</xmldata>
+	<xmldata id="results_earnings_title_ml">
+		<translation lang="en"></translation>
+		<translation lang="fr"><![CDATA[Votre gain fixe pour les deux premières tâches est de]]></translation>
+	</xmldata>
+	<xmldata id="results_earnings_text_1">
+		<translation lang="en">The section randomly selected in order to determine your final earnings from this study is section</translation>
+		<translation lang="fr"><![CDATA[La partie tirée au sort pour déterminer vos gains de cette étude est la partie]]></translation>
+	</xmldata>
+	<xmldata id="results_earnings_text_2">
+		<translation lang="en">Here are your earnings in each section</translation>
+		<translation lang="fr"><![CDATA[Voici vos gains dans chaque partie]]></translation>
+	</xmldata>
+	<xmldata id="results_game_final_text">
+		<translation lang="en">Your earnings in this section</translation>
+		<translation lang="fr"><![CDATA[Votre gain final dans cette tâche]]></translation>
+	</xmldata>
+	<xmldata id="results_game_transfer">
+		<translation lang="en">Your transfer</translation>
+		<translation lang="fr"><![CDATA[Votre transfert]]></translation>
+	</xmldata>
+	<xmldata id="results_game_1_text_1">
+		<translation lang="en">The decision that has been randomly selected in order to determine your contribution is decision</translation>
+		<translation lang="fr"><![CDATA[La décision qui a été tirée au sort pour déterminer votre contribution est la décision]]></translation>
+	</xmldata>
+	<xmldata id="results_game_1_text_2">
+		<translation lang="en">Your contribution</translation>
+		<translation lang="fr"><![CDATA[Votre contribution]]></translation>
+	</xmldata>
+	<xmldata id="results_game_1_text_3">
+		<translation lang="en">Contribution of the other participants</translation>
+		<translation lang="fr"><![CDATA[Contribution des autres participants]]></translation>
+	</xmldata>
+	<xmldata id="results_game_1_text_4">
+		<translation lang="en">Total amount invested in the common project</translation>
+		<translation lang="fr"><![CDATA[Montant total investi dans le projet commun]]></translation>
+	</xmldata>
+	<xmldata id="results_game_1_text_5">
+		<translation lang="en">Amount of the common project before redistribution</translation>
+		<translation lang="fr"><![CDATA[Montant du projet commun avant redistribution]]></translation>
+	</xmldata>
+	<xmldata id="results_game_1_text_6">
+		<translation lang="en">Your earnings from the common project</translation>
+		<translation lang="fr"><![CDATA[Votre gain issu du projet commun]]></translation>
+	</xmldata>
+	<xmldata id="results_game_2_text_1">
+		<translation lang="en">Amount transferred by the first participant A</translation>
+		<translation lang="fr"><![CDATA[Montant transféré par le participant A]]></translation>
+	</xmldata>
+	<xmldata id="results_game_2_text_2">
+		<translation lang="en">Amount transferred by the second participant A</translation>
+		<translation lang="fr"><![CDATA[Montant transféré par le second participant A]]></translation>
+	</xmldata>
+	<xmldata id="results_game_2_text_3">
+		<translation lang="en">Amount transferred by the third participant A</translation>
+		<translation lang="fr"><![CDATA[Montant transféré par le troisième participant A]]></translation>
+	</xmldata>
+	<xmldata id="results_game_2_text_4">
+		<translation lang="en">Your first transfer</translation>
+		<translation lang="fr"><![CDATA[Votre transfert]]></translation>
+	</xmldata>
+	<xmldata id="results_game_2_text_5">
+		<translation lang="en">Your second transfer</translation>
+		<translation lang="fr"><![CDATA[Votre second transfert]]></translation>
+	</xmldata>
+	<xmldata id="results_game_2_text_6">
+		<translation lang="en">Your third transfer</translation>
+		<translation lang="fr"><![CDATA[Votre troisième transfert]]></translation>
+	</xmldata>
+	<xmldata id="results_game_3_text_1">
+		<translation lang="en">Participant B refused transfers less than</translation>
+		<translation lang="fr"><![CDATA[Le participant B a refusé les transferts inférieurs à]]></translation>
+	</xmldata>
+	<xmldata id="results_game_3_text_2">
+		<translation lang="en">The transfer has been</translation>
+		<translation lang="fr"><![CDATA[Le transfert a donc été]]></translation>
+	</xmldata>
+	<xmldata id="results_game_3_text_3">
+		<translation lang="en">accepted</translation>
+		<translation lang="fr"><![CDATA[accepté]]></translation>
+	</xmldata>
+	<xmldata id="results_game_3_text_4">
+		<translation lang="en">refused</translation>
+		<translation lang="fr"><![CDATA[refusé]]></translation>
+	</xmldata>
+	<xmldata id="results_game_3_text_5">
+		<translation lang="en">Amount transferred by participant A</translation>
+		<translation lang="fr"><![CDATA[Montant transféré par le participant A]]></translation>
+	</xmldata>
+	<xmldata id="results_game_3_text_6">
+		<translation lang="en">You refused transfers less than</translation>
+		<translation lang="fr"><![CDATA[Vous avez refusé les transferts inférieurs à]]></translation>
+	</xmldata>
+	<xmldata id="results_game_4_text_1">
+		<translation lang="en">Amount received by participant B</translation>
+		<translation lang="fr"><![CDATA[Montant reçu par le participant B]]></translation>
+	</xmldata>
+	<xmldata id="results_game_4_text_2">
+		<translation lang="en">Amount returned by participant B</translation>
+		<translation lang="fr"><![CDATA[Montant renvoyé par le participant B]]></translation>
+	</xmldata>
+	<xmldata id="results_game_4_text_3">
+		<translation lang="en">Amount transferred by participant A</translation>
+		<translation lang="fr"><![CDATA[Montant envoyé par le participant A]]></translation>
+	</xmldata>
+	<xmldata id="results_game_4_text_4">
+		<translation lang="en">Amount that you received</translation>
+		<translation lang="fr"><![CDATA[Montant reçu]]></translation>
+	</xmldata>
+	<xmldata id="results_game_4_text_5">
+		<translation lang="en">Amount that you returned to participant A</translation>
+		<translation lang="fr"><![CDATA[Montant renvoyé au participant A]]></translation>
+	</xmldata>
+	<xmldata id="results_game_5_text_1">
+		<translation lang="fr"><![CDATA[La décision]]></translation>
+	</xmldata>
+	<xmldata id="results_game_5_text_2">
+		<translation lang="fr"><![CDATA[a été tirée au sort pour calculer vos gains.]]></translation>
+	</xmldata>
+	<xmldata id="results_game_5_text_3">
+		<translation lang="fr"><![CDATA[Pour cette décision vous avez choisi l'option]]></translation>
+	</xmldata>
+	<xmldata id="results_game_5_text_4">
+		<translation lang="fr"><![CDATA[Probabilités associées à cette option :]]></translation>
+	</xmldata>
+	<xmldata id="results_game_5_text_5">
+		<translation lang="fr"><![CDATA[de chances de gagner]]></translation>
+	</xmldata>
+    <xmldata id="results_game_5_text_6">
+		<translation lang="fr"><![CDATA[La question]]></translation>
+	</xmldata>
+    <xmldata id="results_game_5_text_7">
+		<translation lang="fr"><![CDATA[Le dé a fait]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_1">
+		<translation lang="en">Your final earnings from the study</translation>
+		<translation lang="fr"><![CDATA[Vos gains finaux]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_2">
+		<translation lang="en"><![CDATA[How much of your final earnings do you want to transfer on your Paypal account?<br/><i>The amount entered in this box will be transferred on your Paypal account]]></translation>
+		<translation lang="fr"><![CDATA[Quel montant souhaitez-vous transférer sur votre compte Paypal?<br/><i>Le montant entré dans ce champ sera transféré sur votre compte Paypal]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_3">
+		<translation lang="en">within the next 10 days</translation>
+		<translation lang="fr"><![CDATA[dans les 10 prochains jours]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_4">
+		<translation lang="en"><![CDATA[How much of your final earnings do you want to transfer to the International Committee of the Red Cross?<br/><i>The amount entered in this box will be transferred by cheque to the]]></translation>
+		<translation lang="fr"><![CDATA[Quel montant souhaitez-vous transférer au Comité International de la Croix Rouge?<br/><i>Le montant entré dans ce champ sera transféré par chèque au]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_5">
+		<translation lang="en">http://www.icrc.org/eng/donations/ways-to-donate/donation-by-cheque-or-postal.htm</translation>
+		<translation lang="fr">http://www.icrc.org/fre/donations/ways-to-donate/donation-by-cheque-or-postal.htm</translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_6">
+		<translation lang="en">International Committee of the Red Cross</translation>
+		<translation lang="fr"><![CDATA[Comité International de la Croix Rouge]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_7">
+		<translation lang="en"><![CDATA[If you are a Wikipedia user, how much of your final earnings do you want to transfer to the Wikimedia Foundation?<br/><i>The amount entered in this box will be transferred on the Paypal account of the]]></translation>
+		<translation lang="fr"><![CDATA[Si vous êtes un utilisateur de Wikipédia, de ces gains finaux, combien voulez-vous transférer à la Wikimedia Foundation?<br/><i>Le montant entré dans ce champ sera transféré au compte Paypal de ]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_8">
+		<translation lang="en"></translation>
+		<translation lang="fr"><![CDATA[Quel montant souhaitez-vous recevoir en liquide?<br/><i>Le montant entré dans ce champ vous sera remis en liquide à la fin de l'expérience.</i>]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_9">
+		<translation lang="en"></translation>
+		<translation lang="fr"><![CDATA[Quel montant souhaitez vous recevoir sur votre compte de points Amazon ?]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_10">
+		<translation lang="en"></translation>
+		<translation lang="fr"><![CDATA[<i>Vous avez la possibilité de donner tout ou partie de vos gains à la Croix Rouge.</i>]]></translation>
+	</xmldata>
+	<xmldata id="results_game_sum_up_text_11">
+		<translation lang="en"></translation>
+		<translation lang="fr"><![CDATA[La tâche tirée au sort est la tâche ]]></translation>
+	</xmldata>
+	<xmldata id="results_button_finish">
+		<translation lang="en">Finish</translation>
+		<translation lang="fr">Terminer</translation>
+	</xmldata>
+	<xmldata id="results_error_1">
+		<translation lang="en">The amount you have entered is not valid. Please type a valid amount.</translation>
+		<translation lang="fr"><![CDATA[Le montant que vous avez entré est invalide. Veuillez entrer un montant valide.]]></translation>
+	</xmldata>
+	<xmldata id="results_error_2">
+		<translation lang="en">The total amount of your transfers must add up to the amount of your final earnings.</translation>
+		<translation lang="fr"><![CDATA[La somme des montants versés doit être égale au montant de vos gains finaux.]]></translation>
+	</xmldata>
 </language>

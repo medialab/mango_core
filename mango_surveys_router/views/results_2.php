@@ -5,7 +5,7 @@
  * 
  **/
 
-require_once("lang.php");
+require_once('../../lang/lang.php');
 
 
 /********** VARIABLES **********/
@@ -19,9 +19,9 @@ $iExperimentId	= 2;
 // Session variables
 $sToken			= $_GET['token'];
 $sLang			= $_GET['lang'];
-$translator		= new translator($sLang);
+$translator		= new translator($sLang, "../lang/lang.xml");
 $aGamesOrder	= array(2, 4, 1);
-$oDBConnection	= json_decode(file_get_contents('config.json'));
+$oDBConnection	= json_decode(file_get_contents('../../config.json'));
 
 /********** PROGRAM **********/
 
@@ -170,8 +170,8 @@ $mysqli->close();
 
 <head>
 	<title><?php echo $translator->results_title?></title>
-	<link rel="stylesheet" href="../upload/templates/mango/template.css">
-	<script type="text/javascript" src="../third_party/jquery/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" href="../../../upload/templates/mango/template.css">
+	<script type="text/javascript" src="../../../third_party/jquery/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
 		var regex = new RegExp("token=.+&");
 		var result = regex.exec(window.location.href)[0];

@@ -5,7 +5,7 @@
  * 
  **/
 
-require_once('lang.php');
+require_once('../../lang/lang.php');
 
 
 /********** VARIABLES **********/
@@ -19,12 +19,11 @@ $iExperimentId	= 4;
 // Session variables
 $sToken			= $_GET['token'];
 $sLang			= $_GET['lang'];
-$translator		= new translator($sLang);
+$translator		= new translator($sLang, "../lang/lang.xml");
 $aGamesOrder	= array(8);
-$oDBConnection	= json_decode(file_get_contents('config.json'));
+$oDBConnection	= json_decode(file_get_contents('../../config.json'));
 
 /********** PROGRAM **********/
-
 // DB connection
 $mysqli 		= mysqli_connect($oDBConnection->sDbHost, $oDBConnection->sDbUser, $oDBConnection->sDbPassword, $oDBConnection->sDbDatabase) or die("Error " . mysqli_error($link));
 
@@ -104,11 +103,11 @@ $mysqli->close();
 <html lang="<?php echo $sLang ?>">
 	<head>
 		<title><?php echo $translator->results_title?></title>
-		<link rel="stylesheet" href="../upload/templates/mango/template.css">
-		<script type="text/javascript" src="../third_party/jquery/jquery-1.10.2.min.js"></script>
+		<link rel="stylesheet" href="../../../upload/templates/mango/template.css">
+		<script type="text/javascript" src="../../../third_party/jquery/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript">
 			function end() {
-				window.location.replace("mango_surveys_router/views/exit_4.php?lang=<?php echo $sLang ?>");
+				window.location.replace("exit_4.php?lang=<?php echo $sLang ?>");
 			}
 		</script>
 	</head>
