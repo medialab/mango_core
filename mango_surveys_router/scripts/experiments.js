@@ -3,7 +3,9 @@
 // Reset form with empty fields
 function resetForm() {
 	// Select the default empty experiment
-	$('.list-experiments option').first().attr('selected', 'selected');
+	if($('.list-experiments select').val() == 0) {
+		$('.list-experiments option').first().attr('selected', 'selected');
+	}
 	// Reset the experiment Id
 	$('.experiment-id').text('');
 	// Empty experiment name
@@ -65,7 +67,6 @@ function addNewGame(iGameIndex) {
 }
 
 function refreshForm(event, ui) {
-	console.log('refreshForm');
 	// Replace add game button in front of the first game
 	$('.buttons-game:first').append($('.add-game'));
 	// Reset the game number
@@ -89,45 +90,41 @@ $(document).ready(
 		$('.list-experiments select').change(
 			function() {
 				var iExperimentId = $(this).val();
-				// Reset form if iExperimentId = 0
-				if(iExperimentId == 0) {
-					resetForm();
-				} else {
-					$.ajax({
-						type: 'POST',
-						url: 'get_experiment.php',
-						data: {experiment_id: iExperimentId},
-						success: function(data) {
-							var oExperiment = jQuery.parseJSON(data);
-							// Set experiment id
-							$('.experiment-id').text(oExperiment.id);
-							// Set experiment name
-							$('.experiment-name input').val(oExperiment.name);
-							// Set experiment parameters
-							$('.login-phase').prop('checked', parseInt(oExperiment.login_phase));
-							$('.results-phase').prop('checked', parseInt(oExperiment.results_phase));
-							$('.generate-tokens').prop('checked', parseInt(oExperiment.generate_tokens));
-							// Remove all but first games
-							$('.list-games').slice(1).remove();
-							$('.list-games option').first().attr('selected', 'selected');
-							for(var i = 0; i < oExperiment.games.length; i++) {
-								if(!$('.list-games[index="' + oExperiment.games[i].survey_order + '"] select').length) {
-									addNewGame(oExperiment.games[i].survey_order);
-								}
-								$('.list-games[index="' + oExperiment.games[i].survey_order  + '"] select').val(oExperiment.games[i].survey_id);
+				resetForm();
+				$.ajax({
+					type: 'POST',
+					url: 'get_experiment.php',
+					data: {experiment_id: iExperimentId},
+					success: function(data) {
+						var oExperiment = jQuery.parseJSON(data);
+						// Set experiment id
+						$('.experiment-id').text(oExperiment.id);
+						// Set experiment name
+						$('.experiment-name input').val(oExperiment.name);
+						// Set experiment parameters
+						$('.login-phase').prop('checked', parseInt(oExperiment.login_phase));
+						$('.results-phase').prop('checked', parseInt(oExperiment.results_phase));
+						$('.generate-tokens').prop('checked', parseInt(oExperiment.generate_tokens));
+						// Remove all but first games
+						$('.list-games').slice(1).remove();
+						$('.list-games option').first().attr('selected', 'selected');
+						for(var i = 0; i < oExperiment.games.length; i++) {
+							if(!$('.list-games[index="' + oExperiment.games[i].survey_order + '"] select').length) {
+								addNewGame(oExperiment.games[i].survey_order);
 							}
-							// Change button label
-							$('.btn-save').text('Update experiment');
-							// Add cancel buttons
-							$('.buttons').prepend('<button type="button" class="btn btn-primary btn-cancel">Cancel</button>');
-							$('.buttons').append('<button type="button" class="btn btn-primary btn-delete">Delete experiment</button>');
-							$('.buttons').append('<button type="button" class="btn btn-primary btn-export">Export results</button>');
-							// Set experiment url
-							$('.experiment-url').removeClass('hide');
-							$('.experiment-url').attr('href', oExperiment.url);
+							$('.list-games[index="' + oExperiment.games[i].survey_order  + '"] select').val(oExperiment.games[i].survey_id);
 						}
-					});
-				}
+						// Change button label
+						$('.btn-save').text('Update experiment');
+						// Add cancel buttons
+						$('.buttons').prepend('<button type="button" class="btn btn-primary btn-cancel">Cancel</button>');
+						$('.buttons').append('<button type="button" class="btn btn-primary btn-delete">Delete experiment</button>');
+						$('.buttons').append('<button type="button" class="btn btn-primary btn-export">Export results</button>');
+						// Set experiment url
+						$('.experiment-url').removeClass('hide');
+						$('.experiment-url').attr('href', oExperiment.url);
+					}
+				});
 			}
 		);
 

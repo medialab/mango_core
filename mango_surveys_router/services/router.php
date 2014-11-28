@@ -163,8 +163,6 @@ class Router {
 			} else {
 				if($iExperimentId == 1) {
 					$sUrl = 'http://surveys.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S14008323&id=' . $iToken . '&rewards=4&stat=complete';
-				} elseif($iExperimentId == 2) {
-					$sUrl = 'http://surveys.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S14008324&id=' . $iToken . '&stat=complete';
 				} else {
 					$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/exit_' . $iExperimentId . '.php?lang=' . $this->sLang;
 				}

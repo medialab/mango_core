@@ -173,9 +173,8 @@ $mysqli->close();
 	<link rel="stylesheet" href="../../../upload/templates/mango/template.css">
 	<script type="text/javascript" src="../../../third_party/jquery/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
-		var regex = new RegExp("token=.+&");
-		var result = regex.exec(window.location.href)[0];
-		var token = result.replace("token=", "").replace("&sid", "");
+		var regex = new RegExp("token=(.*)&");
+		var token = regex.exec(window.location.href)[1];
 
 		function numbers_only(myfield, e, dec) {
 			if (window.event) {
@@ -251,9 +250,11 @@ $mysqli->close();
 				type: "POST",
 				url: "save_earnings.php",
 				data: "token=" + token + "&email=" + email_address + "&my_earning=" + my_earning + "&red_cross_earning=" + red_cross_earning + "&wikimedia_foundation_earning=" + wikimedia_foundation_earning,
-				async: false
+				async: false,
+				complete: function() {
+					window.location.replace('http://surveys.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S14008324&id=' + token + '&stat=complete');
+				}
 			});
-			window.location.replace("exit_coop.php?lang=<?php echo $sLang ?>");
 		}
 	</script>
 </head>
@@ -442,15 +443,17 @@ function print_sum_up($translator, $iEarning) {
 	
 	// Transfer part of the earnings to the IRC
 	$html .= "<span style='float: right'>€ <input type='text' id='red_cross_earning' size='5' maxlength='5' value='0.00' onKeyPress='return numbers_only(this, event)' onChange='check_earning(this.value)'/></span>";
-	$html .= $translator->results_game_sum_up_text_4 . " <a href='" . $translator->results_game_sum_up_text_5 . "' target='_blank'>" . $translator->results_game_sum_up_text_6 . "</a> " . $translator->results_game_sum_up_text_3 . ".</i><br/><br/>";
+	$html .= $translator->results_game_sum_up_text_4 . " <a href='" . $translator->results_game_sum_up_text_5 . "' target='_blank'>" . $translator->results_game_sum_up_text_6 . "</a> " . $translator->results_game_sum_up_text_3 . ".</i><br/><br />";
 	
 	// Total
 	$html .= "<hr align='right' width='20%'>";
 	$html .= "<span style='float: right; text-align: center; width: 18%;'>Total : ";
 	$html .= "<span id='total_earning'>$iEarning</span> €";
-	$html .= "</span><br/>";
+	$html .= "</span><br />";
 	
-	$html .= "</div><br/><br/>";
+	$html .= "</div><br />";
+
+	$html .= "<div class='error'>ATTENTION ! Merci de cliquer sur le bouton \"Terminer\" et d'attendre que la page Ipsos soit complètement chargée pour valider vos réponses (et récupérer votre gain le cas échéant).</div><br /><br />";
 	
 	return $html;
 }
