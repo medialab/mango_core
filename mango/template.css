@@ -1035,6 +1035,20 @@ div.selected_game{
   color: darkgrey;
 }
 
+.subtraction .button-subtraction {
+  cursor: pointer;
+  float: left;
+  font-size: 15px;
+  margin-left: 25%;
+  width: 25%;
+}
+.subtraction .button-video {
+  cursor: pointer;
+  float: right;
+  font-size: 15px;
+  margin-right: 25%;
+  width: 25%;
+}
 
 /* trans fixes */
 .hide {
