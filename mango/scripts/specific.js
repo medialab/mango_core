@@ -13,7 +13,7 @@ $(document).ready(
 		// For survey 718757, Coop - Questionnaire Traits d'histoire de vie, hide Question Help
 		if((aCoopSurveys.indexOf(iSid) != -1) || (aGcSurveys.indexOf(iSid) != -1)) {
 			$('#movesubmitbtn').text('Suivant');
-			if((aCoopSurveys.indexOf(iSid) != -1)) {
+			if((aGcSurveys.indexOf(iSid) != -1)) {
 				// Hide all question help messages
 				$('.questionhelp').hide();
 			} else {
