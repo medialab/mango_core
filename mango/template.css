@@ -1050,6 +1050,26 @@ div.selected_game{
   width: 25%;
 }
 
+/* Questionnaire : Harter */
+
+.harter ~ .question .answertext {
+  padding-bottom: 10px;
+  width: 30%;
+}
+
+.harter ~ .question .harter_column {
+  float: left;
+  padding-left: 3px;
+  text-align: left;
+  width: 32%;
+}
+
+.harter ~ .question .harter_column_center {
+  float: left;
+  text-align: center;
+  width: 32%;
+}
+
 /* trans fixes */
 .hide {
   display: none;
