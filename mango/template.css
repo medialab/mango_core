@@ -952,9 +952,10 @@ div.selected_game{
 }
 
 .metacognition .question {
-  color: black;
+  color: white;
   font-size: 18px;
   margin: 0;
+  top: 10%;
 }
 
 /* Cognitive games : Social Motivation */
