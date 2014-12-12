@@ -215,7 +215,7 @@ function print_sum_up($translator, $iEarning, $sEmail) {
 		L'enquête est à présent terminée : nous vous remercions énormément pour votre participation !
 	</p>
 	<p>
-		Vos réponses au questionnaire 6 ont déterminé le montant de votre indemnisation.
+		Vos réponses au questionnaire 5 ont déterminé le montant de votre indemnisation.
 	</p>
 
 <?php
