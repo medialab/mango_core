@@ -89,14 +89,19 @@
 <div id="anim_desc">
 	Cette tâche comporte un participant A et un participant B. Votre rôle (participant A ou B) est indiqué au moment de prendre votre décision.<br />
 	<p>
-		<br />
-		<b>Dans ce jeu, le participant A reçoit 10€. Le participant A doit ensuite décider combien d’euros pris sur cette somme seront transférés au participant B</b>.</p>
-	Pour mieux comprendre, cliquez ci-dessous pour regarder l'animation :</div>
+		<b>Cette tâche est très courte et simple : le participant A reçoit 10€. Il doit ensuite décider combien d’euros pris sur cette somme seront transférés au participant B</b>.</p>
+	<p>
+		Vous ne prendrez qu'une seule décision, la tâche est donc très courte.</p>
+	<p>
+		Pour mieux comprendre, cliquez ci-dessous pour regarder l'animation :</p>
+</div>
 <div class="deroulement" id="eiContainer">
 	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="330" id="ExternalInterfaceExample" width="600"><param name="movie" value="mango/mango_dictator/animations/dictator_description_fr.swf" /><param name="quality" value="high" /><param name="allowScriptAccess" value="sameDomain" /><embed align="middle" allowscriptaccess="sameDomain" height="330" loop="false" name="ExternalInterfaceExample" play="true" quality="high" src="mango/mango_dictator/animations/dictator_description_fr.swf" type="application/x-shockwave-flash" width="600" wmode="transparent"></embed></object>
 	<div class="start_animation">
 		<img alt="Start Animation" src="mango/mango_dictator/images/start_animation.png" /></div>
 </div>
+<p>
+	&nbsp;</p>
 ]]></question>
     <preg/>
     <help/>
@@ -364,7 +369,7 @@ $(document).ready(
     <datestamp><![CDATA[Y]]></datestamp>
     <usecookie><![CDATA[N]]></usecookie>
     <allowregister><![CDATA[N]]></allowregister>
-    <allowsave><![CDATA[Y]]></allowsave>
+    <allowsave><![CDATA[N]]></allowsave>
     <autonumber_start><![CDATA[1]]></autonumber_start>
     <autoredirect><![CDATA[Y]]></autoredirect>
     <allowprev><![CDATA[N]]></allowprev>
