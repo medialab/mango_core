@@ -183,6 +183,20 @@ class Router {
 			}
 		}
 	}
+
+	/**
+	 * Test if the current experiment is over
+	 *
+	 * @return boolean true if the experiment is over
+	 **/
+	function isOver($iExperimentId) {
+		$sQuery 	= "SELECT is_over FROM mango_experiment WHERE id = $iExperimentId";
+		$oResult	= $this->oDbConnection->query($sQuery);
+		while($aRow = mysqli_fetch_array($oResult)) {
+			$bExperimentIsOver = (int) $aRow['is_over'];
+		}
+		return $bExperimentIsOver;
+	}
 	
 	/**
 	 * Either print or redirect to the next survey to launch
@@ -198,24 +212,28 @@ class Router {
 		$sRootUrl		= "http://{$_SERVER['HTTP_HOST']}/" . $this->oParams->sInstallFolder;
 		// Get current token
 		$sToken			= $this->getCurrentToken();
-		// If tokens should be generated on the fly
-		if($this->shouldGenerateTokens($iExperimentId)) {
-			$this->addToken($iSurveyId, $sToken);
-		}
-		if($iSurveyId == -1) {
-			// If no more game but a result page, display it
-			if($this->hasResultsPhase($iExperimentId)) {
-				$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/results_' . $iExperimentId . '.php?token=' . $sToken . '&lang=' . $this->sLang;
-			// Else redirect to the ending page
-			} else {
-				if($iExperimentId == 1) {
-					$sUrl = 'http://surveys.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S14008323&id=' . $sToken . '&rewards=4&stat=complete';
-				} else {
-					$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/exit_' . $iExperimentId . '.php?lang=' . $this->sLang;
-				}
-			}
+		if($this->isOver($iExperimentId)) {
+			$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/error.php?lang=' . $this->sLang . '&error=error_experiment_ended';
 		} else {
-			$sUrl = $sRootUrl . "index.php?r=survey/index/sid/$iSurveyId/lang/" . $this->sLang . "/token/$sToken";
+			// If tokens should be generated on the fly
+			if($this->shouldGenerateTokens($iExperimentId)) {
+				$this->addToken($iSurveyId, $sToken);
+			}
+			if($iSurveyId == -1) {
+				// If no more game but a result page, display it
+				if($this->hasResultsPhase($iExperimentId)) {
+					$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/results_' . $iExperimentId . '.php?token=' . $sToken . '&lang=' . $this->sLang;
+				// Else redirect to the ending page
+				} else {
+					if($iExperimentId == 1) {
+						$sUrl = 'http://surveys.ipsosinteractive.com/mrIWeb/mrIWeb.dll?I.Project=S14008323&id=' . $sToken . '&rewards=4&stat=complete';
+					} else {
+						$sUrl = $sRootUrl . 'mango/mango_surveys_router/views/exit_' . $iExperimentId . '.php?lang=' . $this->sLang;
+					}
+				}
+			} else {
+				$sUrl = $sRootUrl . "index.php?r=survey/index/sid/$iSurveyId/lang/" . $this->sLang . "/token/$sToken";
+			}
 		}
 		if(isset($_GET) && isset($_GET['redirect'])) {
 			header("Location: {$sUrl}");

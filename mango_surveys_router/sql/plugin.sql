@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `mango_experiment` (
   `login_phase` tinyint(1) NOT NULL DEFAULT 0,
   `results_phase` tinyint(1) NOT NULL DEFAULT 0,
   `generate_tokens` tinyint(1) NOT NULL DEFAULT 0,
+  `is_over` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

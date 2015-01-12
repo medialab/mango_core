@@ -1,0 +1,44 @@
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>{SURVEYNAME}</title>
+		<meta name="generator" content="LimeSurvey http://www.limesurvey.org" />
+  		<!-- The following line includes template.css and if an RTL-language is used template-rtl.css -->
+        {TEMPLATECSS}
+<!--[if lte IE 6]>
+		<link rel="stylesheet" type="text/css" href="{TEMPLATEURL}ie_fix_6.css" />
+<![endif]-->
+<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="{TEMPLATEURL}ie_fix_7.css" />
+<![endif]-->
+<!--[if IE 8]>
+		<link rel="stylesheet" type="text/css" href="{TEMPLATEURL}ie_fix_8.css" />
+<![endif]-->
+
+<!-- The following CSS hides visual elements of the progress bar from screen readers. -->
+		<style type="text/css" media="aural tty">
+            progress-graph .zero, progress-graph .graph, progress-graph .cent { display: none; }
+		</style>
+		
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/rooturl.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/template.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/timeout.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/help.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/timing.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/slider.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/save_simulation.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/back_button.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/previous_button.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/player.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/save_answer.js"></script>
+		<script type="text/javascript" src="{TEMPLATEURL}scripts/specific.js"></script>
+		<link rel="shortcut icon" href="{TEMPLATEURL}favicon.ico" />
+</head>
+<body>
+<!--HAUT DE PAGE-->
+<div id="top">
+</div>
+
+<!--CONTENU DE PAGE -->
+<div id="content">
+
+<!-- PARTIE GAUCHE -->
+  <div id="right">

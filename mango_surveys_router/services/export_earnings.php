@@ -32,12 +32,13 @@ $oResult		= $oExperimentClass->oDbConnection->query($sQuery);
 while($aRow = $oResult->fetch_array()) {
 	$sFileContent .= $aRow['token'] . ',' . $aRow['earning'] . PHP_EOL;
 }
-$fFile = fopen('./export_' . $iExperimentId . '.csv', 'w');
+$fFile = fopen('../downloads/export_earning_' . $iExperimentId . '.csv', 'w');
 fwrite($fFile, $sFileContent);
 fclose($fFile);
 $aReturn['status']	= 'success';
-$aReturn['message']	= 'Please download the file export_' . $iExperimentId . '.csv';
+$aReturn['message']	= 'Please download the file export_earning_' . $iExperimentId . '.csv';
 echo json_encode($aReturn);
+
 exit;
 
 ?>

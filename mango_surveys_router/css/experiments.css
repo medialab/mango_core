@@ -9,9 +9,7 @@ form {
 	margin-right: 10px;
 }
 
-.btn-cancel,
-.btn-save,
-.btn-delete,
+.btn-primary,
 .add-game,
 .delete-game {
 	margin-right: 10px;
@@ -20,4 +18,9 @@ form {
 
 input[type=checkbox] {
 	margin: 0 3px;
+}
+
+.btn-export-labyrinth > a {
+	color: white;
+	text-decoration: none;
 }

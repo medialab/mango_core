@@ -17,7 +17,7 @@ $sTranslator	= new translator($sLang, $sLangFile);
 
 <html>
 	<head>
-		<meta charset="utf-8"> 
+		<meta charset="utf-8">
 		<title><?php echo $sTranslator->exit_thank_you ?></title>
 		<link rel="stylesheet" href="../../../upload/templates/mango/template.css">
 		<script type="text/javascript" src="../../../../third_party/jquery/jquery-1.10.2.min.js"></script>

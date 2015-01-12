@@ -1,0 +1,17 @@
+<div {QUESTION_ESSENTIALS} class="{QUESTION_CLASS}{QUESTION_MAN_CLASS}{QUESTION_INPUT_ERROR_CLASS}">
+<span class = "question_wrapper">
+							
+							<span class="asterisque">{QUESTION_MANDATORY}</span>
+              {QUESTION_TEXT}  
+  <span class="questionhelp">{QUESTION_HELP}</span>
+							{QUESTION_MAN_MESSAGE}
+							{QUESTION_VALID_MESSAGE}
+							
+							{ANSWER}
+              </span> 
+                
+ 
+<div class="anim_help">
+  {QUESTIONHELP}
+</div><!-- fin de anim help -->
+</div><!-- fin de QUESTION ESSENTIALS -->

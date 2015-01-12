@@ -14,6 +14,7 @@ function resetForm() {
 	$('.login-phase').prop('checked', 0);
 	$('.results-phase').prop('checked', 0);
 	$('.generate-tokens').prop('checked', 0);
+	$('.is-over').prop('checked', 0);
 	// Remove all but first games
 	$('.list-games').slice(1).remove();
 	// Select the default empty game
@@ -24,8 +25,12 @@ function resetForm() {
 	$('.btn-cancel').remove();
 	// Remove delete experiment button
 	$('.btn-delete').remove();
-	// Remove export button
-	$('.btn-export').remove();
+	// Remove export buttons
+	$('.btn-export-earnings').remove();
+	$('.btn-export-matching').remove();
+	$('.btn-export-simulation').remove();
+	$('.btn-export-social-motivation').remove();
+	$('.btn-export-labyrinth').remove();
 	// Enable all buttons
 	$('.buttons .btn').attr('disabled', false);
 	// Reset the experiments list
@@ -105,6 +110,7 @@ $(document).ready(
 						$('.login-phase').prop('checked', parseInt(oExperiment.login_phase));
 						$('.results-phase').prop('checked', parseInt(oExperiment.results_phase));
 						$('.generate-tokens').prop('checked', parseInt(oExperiment.generate_tokens));
+						$('.is-over').prop('checked', parseInt(oExperiment.is_over));
 						// Remove all but first games
 						$('.list-games').slice(1).remove();
 						$('.list-games option').first().attr('selected', 'selected');
@@ -119,7 +125,15 @@ $(document).ready(
 						// Add cancel buttons
 						$('.buttons').prepend('<button type="button" class="btn btn-primary btn-cancel">Cancel</button>');
 						$('.buttons').append('<button type="button" class="btn btn-primary btn-delete">Delete experiment</button>');
-						$('.buttons').append('<button type="button" class="btn btn-primary btn-export">Export results</button>');
+						$('.buttons').append('<button type="button" class="btn btn-primary btn-export-earnings">Export earnings</button>');
+						if(oExperiment.id == 2) {
+							$('.buttons').append('<button type="button" class="btn btn-primary btn-export-matching">Export matching</button>');
+							$('.buttons').append('<button type="button" class="btn btn-primary btn-export-simulation">Export simulation</button>');
+						}
+						if(oExperiment.id == 4) {
+							$('.buttons').append('<button type="button" class="btn btn-primary btn-export-social-motivation">Export social motivation</button>');
+							$('.buttons').append('<button type="button" class="btn btn-primary btn-export-labyrinth">Export labyrinth</button>');
+						}
 						// Set experiment url
 						$('.experiment-url').removeClass('hide');
 						$('.experiment-url').attr('href', oExperiment.url);
@@ -155,6 +169,7 @@ $(document).ready(
 				var bExperimentLoginPhase = $('.login-phase').prop('checked');
 				var bExperimentResultsPhase = $('.results-phase').prop('checked');
 				var bExperimentGenerateTokens = $('.generate-tokens').prop('checked');
+				var bExperimentIsOver = $('.is-over').prop('checked');
 				var bGameError = false;
 				var aExperimentGames = new Array();
 				$('.list-games').each(function(index) {
@@ -172,7 +187,7 @@ $(document).ready(
 					$.ajax({
 						type: 'POST',
 						url: 'save_experiment.php',
-						data: {experiment_id: iExperimentId, experiment_name: sExperimentName, experiment_login_phase: bExperimentLoginPhase, experiment_results_phase: bExperimentResultsPhase, experiment_generate_tokens : bExperimentGenerateTokens, experiment_games: aExperimentGames},
+						data: {experiment_id: iExperimentId, experiment_name: sExperimentName, experiment_login_phase: bExperimentLoginPhase, experiment_results_phase: bExperimentResultsPhase, experiment_generate_tokens : bExperimentGenerateTokens, experiment_is_over : bExperimentIsOver, experiment_games: aExperimentGames},
 						success: function() {
 							// Enable interaction buttons
 							resetForm();
@@ -204,31 +219,126 @@ $(document).ready(
 			}
 		);
 
-		// Export the results according to the experiment selected
-		$('.form-experiment').on('click', '.btn-export',
+		// Export the earnings according to the experiment selected
+		$('.form-experiment').on('click', '.btn-export-earnings',
 			function() {
 				// Disable interactions buttons
 				$('.buttons .btn').attr('disabled', true);
 				// Get current experiment id
-				var iExperimentId = $('.experiment-id').text();	
+				var iExperimentId = $('.experiment-id').text();
 				if(iExperimentId != '' && iExperimentId != 0) {
 					$.ajax({
 						type: 'POST',
-						url: 'export_results.php',
+						url: 'export_earnings.php',
 						data: {experiment_id: iExperimentId},
 						success: function(data) {
 							var sResult = jQuery.parseJSON(data);
 							if(sResult.status == 'error') {
 								$('.messages').append('<div class="alert alert-danger">' + sResult.message + '</div>').delay(10000).slideUp(1000);
 							} else {
-								// Download results file
-								window.location.href = 'export_' + iExperimentId + '.csv';
+								// Download earnings file
+								window.location.href = '../downloads/export_earning_' + iExperimentId + '.csv';
 							}
 							// Enable interaction buttons
 							$('.buttons .btn').attr('disabled', false);
 						}
 					});
 				}
+			}
+		);
+
+		// Export the matchings according to the experiment selected
+		$('.form-experiment').on('click', '.btn-export-matching',
+			function() {
+				// Disable interactions buttons
+				$('.buttons .btn').attr('disabled', true);
+				// Get current experiment id
+				var iExperimentId = $('.experiment-id').text();
+				if(iExperimentId != '' && iExperimentId != 0) {
+					$.ajax({
+						type: 'POST',
+						url: 'export_matching.php',
+						data: {experiment_id: iExperimentId},
+						success: function(data) {
+							var sResult = jQuery.parseJSON(data);
+							if(sResult.status == 'error') {
+								$('.messages').append('<div class="alert alert-danger">' + sResult.message + '</div>').delay(10000).slideUp(1000);
+							} else {
+								// Download earnings file
+								window.location.href = '../downloads/export_matching_' + iExperimentId + '.csv';
+							}
+							// Enable interaction buttons
+							$('.buttons .btn').attr('disabled', false);
+						}
+					});
+				}
+			}
+		);
+
+		// Export the simulation according to the experiment selected
+		$('.form-experiment').on('click', '.btn-export-simulation',
+			function() {
+				// Disable interactions buttons
+				$('.buttons .btn').attr('disabled', true);
+				// Get current experiment id
+				var iExperimentId = $('.experiment-id').text();
+				if(iExperimentId != '' && iExperimentId != 0) {
+					$.ajax({
+						type: 'POST',
+						url: 'export_simulation.php',
+						data: {experiment_id: iExperimentId},
+						success: function(data) {
+							var sResult = jQuery.parseJSON(data);
+							if(sResult.status == 'error') {
+								$('.messages').append('<div class="alert alert-danger">' + sResult.message + '</div>').delay(10000).slideUp(1000);
+							} else {
+								// Download earnings file
+								window.location.href = '../downloads/export_simulation_' + iExperimentId + '.csv';
+							}
+							// Enable interaction buttons
+							$('.buttons .btn').attr('disabled', false);
+						}
+					});
+				}
+			}
+		);
+
+		// Export the social motivation results
+		$('.form-experiment').on('click', '.btn-export-social-motivation',
+			function() {
+				// Disable interactions buttons
+				$('.buttons .btn').attr('disabled', true);
+				$.ajax({
+					type: 'POST',
+					url: 'export_social_motivation.php',
+					success: function(data) {
+						var sResult = jQuery.parseJSON(data);
+						if(sResult.status == 'error') {
+							$('.messages').append('<div class="alert alert-danger">' + sResult.message + '</div>').delay(10000).slideUp(1000);
+						} else {
+							// Download earnings file
+							window.location.href = '../downloads/export_social_motivation.csv';
+						}
+						// Enable interaction buttons
+						$('.buttons .btn').attr('disabled', false);
+					}
+				});
+			}
+		);
+
+		// Export the labyrinth results
+		$('.form-experiment').on('click', '.btn-export-labyrinth',
+			function(e) {
+				e.preventDefault();
+				$('.experiment-url').after('<a href="../../mango_frustrating_task/files/answers.txt" class="to-click" download>Download</a>')
+				$('.to-click').hide();
+				$('.to-click')[0].click();
+				$('.to-click').attr('href', '../../mango_frustrating_task/files/answers_event.txt');
+				$('.to-click')[0].click();
+				$('.to-click').attr('href', '../../mango_frustrating_task/files/answers_focus.txt');
+				$('.to-click')[0].click();
+				$('.to-click').attr('href', '../../mango_frustrating_task/files/answers_trace.txt');
+				$('.to-click')[0].click();
 			}
 		);
 	}

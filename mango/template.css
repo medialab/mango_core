@@ -1051,6 +1051,19 @@ div.selected_game{
   width: 25%;
 }
 
+.subtraction select {
+  float: right;
+  margin-right: 25%;
+  margin-top: 10px;
+  width: 300px;
+}
+
+.subtraction video#video,
+.subtraction object.tetris {
+  transform: translate(-50%, 0);
+  top: 20px;
+}
+
 /* Questionnaire : Harter */
 
 .harter ~ .question .answertext {
