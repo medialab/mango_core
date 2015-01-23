@@ -23,5 +23,9 @@
 * Connect you on your admin panel
 * Import the survey into /limesurvey/mango/mango_dictator/survey/limesurvey_survey_336985.lss
 
+## create and edit experiments
+An experiment is a serie of surveys. Mango routs users throught this serie.
+admin panel for expermients : limesurvey_host/mango/mango_surveys_router/services/experiments.php
+
 # Credits
 [medialab](http://www.medialab.sciences-po.fr/)
