@@ -130,19 +130,21 @@ if($stmt = $mysqli->prepare($sQuery)) {
 }
 
 if($isDone) {
-	$sQuery 		= "SELECT earning1, earning2, earning4, chosenGame, earning FROM $sTableEarning WHERE token = '$sToken' AND experiment_id = $iExperimentId";
+	$sQuery 		= "SELECT earning1, earning2, earning4, chosenGame, earning, red_cross_earning FROM $sTableEarning WHERE token = '$sToken' AND experiment_id = $iExperimentId";
 	if($stmt = $mysqli->prepare($sQuery)) {
 		$stmt->execute();
-		$stmt->bind_result($iEarning1, $iEarning2, $iEarning4, $iChosenGame, $iEarning);
+		$stmt->bind_result($iEarning1, $iEarning2, $iEarning4, $iChosenGame, $iEarning, $iRedCrossEarning);
 		$stmt->fetch();
 		$stmt->close();
 	}
 } else {
-	$iEarning1		= number_format($iEndowment - (int) $iParticipantContribution1 + 0.4 * $iTotal1, 2);
+	$iEarning1			= number_format($iEndowment - (int) $iParticipantContribution1 + 0.4 * $iTotal1, 2);
 
-	$iEarning2		= number_format($iEndowment - (int) $iParticipantContribution2, 2);
+	$iEarning2			= number_format($iEndowment - (int) $iParticipantContribution2, 2);
 
-	$iEarning4		= number_format($iEndowment - (int) $iParticipantContribution4 + $iPartnerContribution4, 2);
+	$iEarning4			= number_format($iEndowment - (int) $iParticipantContribution4 + $iPartnerContribution4, 2);
+
+	$iRedCrossEarning		= number_format(0, 2);
 
 	switch($iChosenGame) {
 		case 1 :
@@ -272,7 +274,6 @@ $mysqli->close();
     <div id="right">
 
 <?php
-
 /********** FUNCTIONS **********/
 
 /*
@@ -428,7 +429,7 @@ function print_chosen_game($translator, $iChosenGame, $aGamesOrder) {
 }
 
 # Final Sum Up
-function print_sum_up($translator, $iEarning) {
+function print_sum_up($translator, $iEarning, $iRedCrossEarning) {
 	$emailAddress = "";
 
 	$html = "<div class='gain_final'>
@@ -442,7 +443,7 @@ function print_sum_up($translator, $iEarning) {
 	$html .= $translator->results_game_sum_up_text_9 . "<br/><br/>";
 	
 	// Transfer part of the earnings to the IRC
-	$html .= "<span style='float: right'>€ <input type='text' id='red_cross_earning' size='5' maxlength='5' value='0.00' onKeyPress='return numbers_only(this, event)' onChange='check_earning(this.value)'/></span>";
+	$html .= "<span style='float: right'>€ <input type='text' id='red_cross_earning' size='5' maxlength='5' value='$iRedCrossEarning' onKeyPress='return numbers_only(this, event)' onChange='check_earning(this.value)'/></span>";
 	$html .= $translator->results_game_sum_up_text_4 . " <a href='" . $translator->results_game_sum_up_text_5 . "' target='_blank'>" . $translator->results_game_sum_up_text_6 . "</a> " . $translator->results_game_sum_up_text_3 . ".</i><br/><br />";
 	
 	// Total
@@ -450,7 +451,7 @@ function print_sum_up($translator, $iEarning) {
 	$html .= "<span style='float: right; text-align: center; width: 18%;'>Total : ";
 	$html .= "<span id='total_earning'>$iEarning</span> €";
 	$html .= "</span><br />";
-	
+
 	$html .= "</div><br />";
 
 	$html .= "<div class='error'>ATTENTION ! Merci de cliquer sur le bouton \"Terminer\" et d'attendre que la page Ipsos soit complètement chargée pour valider vos réponses (et récupérer votre gain le cas échéant).</div><br /><br />";
@@ -468,7 +469,7 @@ foreach ($aGamesOrder as $iGameId) {
 
 echo print_chosen_game($translator, $iChosenGame, $aGamesOrder);
 
-echo print_sum_up($translator, $iEarning);
+echo print_sum_up($translator, $iEarning, $iRedCrossEarning);
 
 echo "<input id='endbutton' type='button' value='" . $translator->results_button_finish . "' onclick='end();'/>";
 
