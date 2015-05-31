@@ -248,7 +248,7 @@ $mysqli->close();
 			}
 			$.ajax({
 				type: "POST",
-				url: "../save_earnings.php",
+				url: "../../save_earnings.php",
 				data: "token=" + token + "&email=" + email_address + "&my_earning=" + my_earning + "&red_cross_earning=" + red_cross_earning + "&wikimedia_foundation_earning=" + wikimedia_foundation_earning,
 				async: false,
 				complete: function() {
