@@ -431,9 +431,12 @@ function print_chosen_game($translator, $iChosenGame, $aGamesOrder) {
 # Final Sum Up
 function print_sum_up($translator, $iEarning, $iRedCrossEarning) {
 	$emailAddress = "";
+	$iFinalEarning = number_format((int) $iEarning + (int) $iRedCrossEarning, 2);
+	$iEarning = number_format($iEarning, 2);
+	$iRedCrossEarning = number_format($iRedCrossEarning, 2);
 
 	$html = "<div class='gain_final'>
-		<span class='gain_partie'><span class='final_earning'>$iEarning</span> €</span>";
+		<span class='gain_partie'><span class='final_earning'>$iFinalEarning</span> €</span>";
 	$html .= "<span class='titre_partie'>" . $translator->results_game_sum_up_text_1 . "</span>";
 
 	$html .= "<br/><br/>" . $translator->results_game_sum_up_text_10;
@@ -449,7 +452,7 @@ function print_sum_up($translator, $iEarning, $iRedCrossEarning) {
 	// Total
 	$html .= "<hr align='right' width='20%'>";
 	$html .= "<span style='float: right; text-align: center; width: 18%;'>Total : ";
-	$html .= "<span id='total_earning'>$iEarning</span> €";
+	$html .= "<span id='total_earning'>$iFinalEarning</span> €";
 	$html .= "</span><br />";
 
 	$html .= "</div><br />";
