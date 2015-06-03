@@ -17,7 +17,7 @@ $oResult		= $oExperimentClass->oDbConnection->query($sQuery);
 while($aRow = $oResult->fetch_array()) {
 	$sFileContent .= $aRow['id'] . ',' . $aRow['token'] . ',' . $aRow['rank'] . ',' . $aRow['screen_resolution'] . ',' . $aRow['window_resolution'] . ',' . $aRow['rewarded_line'] . ',' . $aRow['displayed_line'] . ',' . $aRow['user_answer'] . ',' . $aRow['rewarded_score'] . ',' . $aRow['is_rewarded'] . ',' . $aRow['video_displayed'] . ',' . $aRow['is_correct'] . ',' . $aRow['delay_answer'] . PHP_EOL;
 }
-$fFile = fopen('../downloads/export_social_motivation.csv', 'w');
+$fFile = fopen('../downloads/export_social_motivation.csv', 'w+');
 fwrite($fFile, $sFileContent);
 fclose($fFile);
 $aReturn['status']	= 'success';

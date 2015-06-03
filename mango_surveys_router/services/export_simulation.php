@@ -32,7 +32,7 @@ $oResult		= $oExperimentClass->oDbConnection->query($sQuery);
 while($aRow = $oResult->fetch_array()) {
 	$sFileContent .= $aRow['id'] . ',' . $aRow['token'] . ',' . $aRow['game'] . ',' . $aRow['updated'] . PHP_EOL;
 }
-$fFile = fopen('../downloads/export_simulation_' . $iExperimentId . '.csv', 'w');
+$fFile = fopen('../downloads/export_simulation_' . $iExperimentId . '.csv', 'w+');
 fwrite($fFile, $sFileContent);
 fclose($fFile);
 $aReturn['status']	= 'success';
