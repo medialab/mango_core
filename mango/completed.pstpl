@@ -1,3 +1,4 @@
 <span class = "question_wrapper">{COMPLETED}<br />
+<div id="completed-url" style="display:none">{URL}</div>
 <br />
 </span>
